@@ -1,7 +1,12 @@
+import { RouterProvider } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import router from './Routers/Router';
+
 function App() {
 	return (
 		<div className='App'>
-			<h1 className='text-3xl font-bold text-center'>Hello world!</h1>
+			<Toaster position='top-center' reverseOrder={false} />
+			<RouterProvider router={router} />
 		</div>
 	);
 }
