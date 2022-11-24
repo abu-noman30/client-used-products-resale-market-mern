@@ -20,7 +20,7 @@ const Register = () => {
 		const accountType = form.accountType.value;
 		console.log(fullname, email, password, accountType);
 
-		if (fullname && email && password) {
+		if (fullname && email && password && accountType) {
 			// Firebase Auth methods---------------------
 			methodCreateUser(email, password)
 				.then((userCredential) => {
@@ -30,6 +30,8 @@ const Register = () => {
 					handlerOnLogout();
 					//  for updating user profile---------
 					handlerUpdateProfile(fullname);
+					// for adding user to database
+					saveUsersToDatabase(fullname, email, accountType);
 
 					// for sending email verification
 					// handlerVerifyEmail();
@@ -38,8 +40,6 @@ const Register = () => {
 					form.reset();
 					console.log(user);
 					// ...
-					toast.success('Your account has been created successfully. ');
-					navigate('/login');
 				})
 				.catch((error) => {
 					const errorMessage = error.message;
@@ -47,6 +47,31 @@ const Register = () => {
 					console.error(error);
 					// ..
 				});
+		}
+	};
+	const saveUsersToDatabase = async (userName, userEmail, accountType) => {
+		console.log(userEmail, userName, accountType);
+		const usersData = {
+			name: userName,
+			email: userEmail,
+			accountType: accountType
+		};
+		try {
+			const res = await fetch('http://localhost:5000/users', {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(usersData)
+			});
+			const data = await res.json();
+			console.log(data);
+			if (data) {
+				toast.success('Your account has been created successfully. ');
+				navigate('/login');
+			}
+		} catch (error) {
+			console.log(error);
 		}
 	};
 	// Email & Password Validation
