@@ -6,7 +6,7 @@ const CarCatagory = () => {
 	const [carBrands, setCarBrands] = useState([]);
 	useEffect(() => {
 		const fetchCarCatagory = async () => {
-			const res = await fetch('Brands.json');
+			const res = await fetch('http://localhost:5000/category');
 			const data = await res.json();
 			console.log(data);
 			setCarBrands(data);
