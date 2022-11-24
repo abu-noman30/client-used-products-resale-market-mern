@@ -1,0 +1,266 @@
+[
+  {
+    "_id": "1",
+    "brand_name": "Hyundai",
+    "condition": {
+      "badge": "Excellent"
+    },
+    "car_name": "Hyundai Creta",
+    "price": {
+      "original_price": 12000,
+      "resale_price": 9000
+    },
+    "image": "",
+    "description": "Hyundai has put three engines on offer: a 1.5-litre naturally aspirated petrol (making 115PS and 144Nm), a 1.5-litre diesel (115PS and 250Nm) and a 1.4-litre turbo-petrol (140PS and 242Nm). The 1.5-litre petrol and diesel engines are coupled to a six-speed manual transmission and optionally, the former comes with a CVT gearbox and the latter is coupled to a torque converter.",
+    "purchase_year": "2020",
+    "used_for": "2 year",
+    "seller_info": {
+      "name": "Rahul Sharma",
+      "phone": "+88014364893665",
+      "location": "Chittagong",
+      "post_date": "2021-10-01"
+    }
+  },
+  {
+    "_id": "1",
+    "brand_name": "Hyundai",
+    "condition": {
+      "badge": "Excellent"
+    },
+    "car_name": "Hyundai i20",
+    "price": {
+      "original_price": 11000,
+      "resale_price": 10000
+    },
+    "image": "",
+    "description": " Hyundai i20 is a 5 seater Hatchback available in a price range of Rs. 5.99 - 9.99 Lakh. It is available in 10 variants, a 1197 cc, BS6 and 2 transmission options: Manual and Automatic. Other key specifications of the i20 include a kerb weight of, ground clearance of and boot space of 295 litres. The i20 is available in 7 colours. ",
+    "purchase_year": "2021",
+    "used_for": "1 year",
+    "seller_info": {
+      "name": "Md. Rony Khan", 
+      "phone": "+8801763940764",
+      "location": "Rajshahi",
+      "post_date": "2022-10-01"
+    }
+  },
+  {
+    "_id": "1",
+    "brand_name": "BMW",
+    "condition": {
+      "badge": "Excellent"
+    },
+    "car_name": "BMW 3 Series",
+    "price": {
+      "original_price": 15000,
+      "resale_price": 12000
+    },
+    "image": "",
+    "description": " BMW 3 Series is a 5 seater Sedan available in a price range of Rs. 40.90 - 60.90 Lakh. It is available in 10 variants, a 1998 cc, BS6 and 2 transmission options: Automatic and Manual. Other key specifications of the 3 Series include a kerb weight of, ground clearance of and boot space of 480 litres. The 3 Series is available in 8 colours. ",
+    "purchase_year": "2019",
+    "used_for": "2 year",
+    "seller_info": {
+      "name": "Kawsar Ahmed",
+      "phone": "+88014364893665",
+      "location": "Rangpur",
+      "post_date": "2021-10-01"
+    }
+  },
+  {
+    "_id": "1",
+    "brand_name": "BMW",
+    "condition": {
+      "badge": "Excellent"
+    },
+    "car_name": "BMW 5 Series",
+    "price": {
+      "original_price": 15000,
+      "resale_price": 12000
+    },
+    "image": "",
+    "description": " BMW 5 Series is a 5 seater Sedan available in a price range of Rs. 60.90 - 1.10 Cr. It is available in 10 variants, a 1998 cc, BS6 and 2 transmission options: Automatic and Manual. Other key specifications of the 5 Series include a kerb weight of, ground clearance of and boot space of 480 litres. The 5 Series is available in 8 colours. ",
+    "purchase_year": "2018",
+    "used_for": "3 year",
+    "seller_info": {
+      "name": "Sunny Al Hasan",
+      "phone": "+88014364893665",
+      "location": "Dhaka",
+      "post_date": "2021-10-01"
+    }
+  },
+  {
+    "_id": "1",
+    "brand_name": "Kia",
+    "condition": {
+      "badge": "Excellent"
+    },
+    "car_name": "Kia Seltos",
+    "price": {
+      "original_price": 15000,
+      "resale_price": 12000
+    },
+    "image": "",
+    "description": " Kia Seltos is a 5 seater SUV available in a price range of Rs. 9.89 - 17.99 Lakh. It is available in 10 variants, a 1493 cc, BS6 and 2 transmission options: Manual and Automatic. Other key specifications of the Seltos include a kerb weight of, ground clearance of and boot space of 433 litres. The Seltos is available in 7 colours. ",
+    "purchase_year": "2020",
+    "used_for": "2 year",
+    "seller_info": {
+      "name": "Alal Ahmed Khan",
+      "phone": "+88014364893665",
+      "location": "Dhaka",
+      "post_date": "2021-10-01"
+    }
+  },
+  {
+    "_id": "1",
+    "brand_name": "Kia",
+    "condition": {
+      "badge": "Excellent"
+    },
+    "car_name": "Kia Sonet",
+    "price": {
+      "original_price": 15000,
+      "resale_price": 12000
+    },
+    "image": "",
+    "description": " Kia Sonet is a 5 seater SUV available in a price range of Rs. 6.71 - 12.99 Lakh. It is available in 10 variants, a 1197 cc, BS6 and 2 transmission options: Manual and Automatic. Other key specifications of the Sonet include a kerb weight of, ground clearance of and boot space of 433 litres. The Sonet is available in 7 colours. ",
+    "purchase_year": "2018",
+    "used_for": "3 year",
+    "seller_info": {
+      "name": "Jiaul Haque",
+      "phone": "+88014364893665",
+      "location": "Dhaka",
+      "post_date": "2021-10-01"
+    }
+  },
+  {
+    "_id": "1",
+    "brand_name": "Honda",
+    "condition": {
+      "badge": "Excellent"
+    },
+    "car_name": "Honda City",
+    "price": {
+      "original_price": 15000,
+      "resale_price": 12000
+    },
+    "image": "",
+    "description": " Honda City is a 5 seater Sedan available in a price range of Rs. 10.89 - 17.99 Lakh. It is available in 10 variants, a 1497 cc, BS6 and 2 transmission options: Manual and Automatic. Other key specifications of the City include a kerb weight of, ground clearance of and boot space of 510 litres. The City is available in 7 colours. ",
+    "purchase_year": "2020",
+    "used_for": "2 year",
+    "seller_info": {
+      "name": "Meshab Ul Alam",
+      "phone": "+88014364893665",
+      "location": "Dhaka",
+      "post_date": "2021-10-01"
+    }
+  },
+  {
+    "_id": "1",
+    "brand_name": "Honda",
+    "condition": {
+      "badge": "Excellent"
+    },
+    "car_name": "Honda Civic",
+    "price": {
+      "original_price": 15000,
+      "resale_price": 12000
+    },
+    "image": "",
+    "description": " Honda Civic is a 5 seater Sedan available in a price range of Rs. 17.99 - 25.99 Lakh. It is available in 10 variants, a 1497 cc, BS6 and 2 transmission options: Manual and Automatic. Other key specifications of the Civic include a kerb weight of, ground clearance of and boot space of 510 litres. The Civic is available in 7 colours. ",
+    "purchase_year": "2018",
+    "used_for": "3 year",
+    "seller_info": {
+      "name": "Mamunul Islam",
+      "phone": "+88014364893665",
+      "location": "Dhaka",
+      "post_date": "2021-10-01"
+    }
+  },
+  {
+    "_id": "1",
+    "brand_name": "Audi",
+    "condition": {
+      "badge": "Excellent"
+    },
+    "car_name": "Audi A4",
+    "price": {
+      "original_price": 15000,
+      "resale_price": 12000
+    },
+    "image": "",
+    "description": " Audi A4 is a 5 seater Sedan available in a price range of Rs. 40.99 - 60.99 Lakh. It is available in 10 variants, a 1968 cc, BS6 and 2 transmission options: Automatic and Manual. Other key specifications of the A4 include a kerb weight of, ground clearance of and boot space of 480 litres. The A4 is available in 8 colours. ",
+    "purchase_year": "2020",
+    "used_for": "2 year",
+    "seller_info": {
+      "name": "Sakib Al Hasan",
+      "phone": "+88014364893665",
+      "location": "Dhaka",
+      "post_date": "2021-10-01"
+    }
+  },
+  {
+    "_id": "1",
+    "brand_name": "Audi",
+    "condition": {
+      "badge": "Excellent"
+    },
+    "car_name": "Audi A6",
+    "price": {
+      "original_price": 15000,
+      "resale_price": 12000
+    },
+    "image": "",
+    "description": " Audi A6 is a 5 seater Sedan available in a price range of Rs. 60.99 - 80.99 Lakh. It is available in 10 variants, a 1968 cc, BS6 and 2 transmission options: Automatic and Manual. Other key specifications of the A6 include a kerb weight of, ground clearance of and boot space of 480 litres. The A6 is available in 8 colours. ",
+    "purchase_year": "2018",
+    "used_for": "3 year",
+    "seller_info": {
+      "name": "Tamim Iqbal",
+      "phone": "+88014364893665",
+      "location": "Dhaka",
+      "post_date": "2021-10-01"
+    }
+  },
+  {
+    "_id": "1",
+    "brand_name": "Mitsubishi",
+    "condition": {
+      "badge": "Excellent"
+    },
+    "car_name": "Mitsubishi Pajero",
+    "price": {
+      "original_price": 15000,
+      "resale_price": 12000
+    },
+    "image": "",
+    "description": " Mitsubishi Pajero is a 7 seater SUV available in a price range of Rs. 40.99 - 60.99 Lakh. It is available in 10 variants, a 1968 cc, BS6 and 2 transmission options: Automatic and Manual. Other key specifications of the Pajero include a kerb weight of, ground clearance of and boot space of 480 litres. The Pajero is available in 8 colours. ",
+    "purchase_year": "2020",
+    "used_for": "2 year",
+    "seller_info": {
+      "name": "Tanvir Islam",
+      "phone": "+88014364893665",
+      "location": "Dhaka",
+      "post_date": "2021-10-01"
+    }
+  },
+  {
+    "_id": "1",
+    "brand_name": "Mitsubishi",
+    "condition": {
+      "badge": "Excellent"
+    },
+    "car_name": "Mitsubishi Lancer",
+    "price": {
+      "original_price": 15000,
+      "resale_price": 12000
+    },
+    "image": "",
+    "description": " Mitsubishi Lancer is a 5 seater Sedan available in a price range of Rs. 40.99 - 60.99 Lakh. It is available in 10 variants, a 1968 cc, BS6 and 2 transmission options: Automatic and Manual. Other key specifications of the Lancer include a kerb weight of, ground clearance of and boot space of 480 litres. The Lancer is available in 8 colours. ",
+    "purchase_year": "2018",
+    "used_for": "3 year",
+    "seller_info": {
+      "name": "Rubayet Hossain",
+      "phone": "+88014364893665",
+      "location": "Dhaka",
+      "post_date": "2021-10-01"
+    }
+  }
+]

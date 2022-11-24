@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "1",
+    "brand_name": "Hyundai",
+    "image": "https://i.ibb.co/pwJv0Kg/Hyundai-logo-silver-2560x1440.png"
+  },
+  {
+    "_id": "2",
+    "brand_name": "BMW",
+    "image": "https://i.ibb.co/WHXjJPC/bmw-logo-2020-blue-white.png"
+  },
+  {
+    "_id": "3",
+    "brand_name": "Kia",
+    "image": "https://i.ibb.co/QHx0ZJ7/Kia-logo-2560x1440.png"
+  },
+  {
+    "_id": "4",
+    "brand_name": "Honda",
+    "image": "https://i.ibb.co/1q4ry2w/honda-logo-1700x1150.png"
+  },
+  {
+    "_id": "5",
+    "brand_name": "Nissan",
+    "image": "https://i.ibb.co/gMGdfff/nissan-logo-2012-1300x1100.png"
+  },
+  {
+    "_id": "6",
+    "brand_name": "Mitsubishi",
+    "image": "https://i.ibb.co/ZBhSfyF/Mitsubishi-emblem-1024x768.png"
+  }
+]
