@@ -17,7 +17,8 @@
       "name": "Rahul Sharma",
       "phone": "+88014364893665",
       "location": "Chittagong",
-      "post_date": "2021-10-01"
+      "post_date": "2021-10-01",
+      "verified":"unverified"
     }
   },
   {
@@ -38,7 +39,8 @@
       "name": "Md. Rony Khan", 
       "phone": "+8801763940764",
       "location": "Rajshahi",
-      "post_date": "2022-10-01"
+      "post_date": "2022-10-01",
+      "verified":"verified"
     }
   },
   {
@@ -59,7 +61,8 @@
       "name": "Kawsar Ahmed",
       "phone": "+88014364893665",
       "location": "Rangpur",
-      "post_date": "2021-10-01"
+      "post_date": "2021-10-01",
+      "verified":"unverified"
     }
   },
   {
@@ -80,7 +83,8 @@
       "name": "Sunny Al Hasan",
       "phone": "+88014364893665",
       "location": "Dhaka",
-      "post_date": "2021-10-01"
+      "post_date": "2021-10-01",
+      "verified":"verified"
     }
   },
   {
@@ -101,7 +105,8 @@
       "name": "Alal Ahmed Khan",
       "phone": "+88014364893665",
       "location": "Dhaka",
-      "post_date": "2021-10-01"
+      "post_date": "2021-10-01",
+      "verified":"unverified"
     }
   },
   {
@@ -122,7 +127,8 @@
       "name": "Jiaul Haque",
       "phone": "+88014364893665",
       "location": "Dhaka",
-      "post_date": "2021-10-01"
+      "post_date": "2021-10-01",
+      "verified":"verified"
     }
   },
   {
@@ -143,7 +149,8 @@
       "name": "Meshab Ul Alam",
       "phone": "+88014364893665",
       "location": "Dhaka",
-      "post_date": "2021-10-01"
+      "post_date": "2021-10-01",
+      "verified":"unverified"
     }
   },
   {
@@ -164,7 +171,8 @@
       "name": "Mamunul Islam",
       "phone": "+88014364893665",
       "location": "Dhaka",
-      "post_date": "2021-10-01"
+      "post_date": "2021-10-01",
+      "verified":"verified"
     }
   },
   {
@@ -185,7 +193,8 @@
       "name": "Sakib Al Hasan",
       "phone": "+88014364893665",
       "location": "Dhaka",
-      "post_date": "2021-10-01"
+      "post_date": "2021-10-01",
+      "verified":"unverified"
     }
   },
   {
@@ -206,7 +215,8 @@
       "name": "Tamim Iqbal",
       "phone": "+88014364893665",
       "location": "Dhaka",
-      "post_date": "2021-10-01"
+      "post_date": "2021-10-01",
+      "verified":"unverified"
     }
   },
   {
@@ -227,7 +237,8 @@
       "name": "Tanvir Islam",
       "phone": "+88014364893665",
       "location": "Dhaka",
-      "post_date": "2021-10-01"
+      "post_date": "2021-10-01",
+      "verified":"verified"
     }
   },
   {
@@ -248,7 +259,8 @@
       "name": "Rubayet Hossain",
       "phone": "+88014364893665",
       "location": "Dhaka",
-      "post_date": "2021-10-01"
+      "post_date": "2021-10-01",
+      "verified":"unverified"
     }
   }
 ]

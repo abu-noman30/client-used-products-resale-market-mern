@@ -16,7 +16,7 @@ const CarCatagory = () => {
 	return (
 		<>
 			{/* Car Catagories Container */}
-			<div className='car-catagories-container w-11/12 mx-auto mt-10 px-0 md:px-16 lg:px-0 '>
+			<div className='car-catagories-container w-11/12 mx-auto mt-10 px-0 md:px-16 lg:px-0 mb-10 '>
 				<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6'>
 					{/* Car Catagory Card */}
 					{carBrands.map((brand) => (
