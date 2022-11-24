@@ -1,18 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const AvailableCars = () => {
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const res = await fetch('http://localhost:5000/category');
-				const data = await res.json();
-				console.log(data);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		fetchData();
-	}, []);
+	const loaderData = useLoaderData();
+	console.log(loaderData);
+
 	return (
 		<>
 			{/* Available Cars Conainer */}

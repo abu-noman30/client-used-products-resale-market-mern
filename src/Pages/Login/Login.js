@@ -60,18 +60,21 @@ const Login = () => {
 			.then((result) => {
 				// This gives you a Google Access Token. You can use it to access the Google API.
 				const user = result.user;
+
 				console.log(user);
 				// ...
 				// ...
 
 				// ...
-				if (user && user.uid) {
+				if (user && user.uid && user.displayName && user.email) {
 					if (from === '/' || from === '/home') {
-						// toast.success('Login Successful');
-						navigate('/home');
-					} else {
 						toast.success('Login Successful');
+						navigate('/home');
+						saveUsersToDatabase(user.displayName, user.email);
+					} else {
+						// toast.success('Login Successful');
 						navigate(from, { replace: true });
+						saveUsersToDatabase(user.displayName, user.email);
 					}
 				} else {
 					handlerOnLogout();
@@ -97,7 +100,27 @@ const Login = () => {
 				// An error happened.
 			});
 	};
-
+	const saveUsersToDatabase = async (userName, userEmail) => {
+		console.log(userEmail, userName);
+		const usersData = {
+			name: userName,
+			email: userEmail,
+			accountType: 'buyer'
+		};
+		try {
+			const res = await fetch('http://localhost:5000/users', {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(usersData)
+			});
+			const data = await res.json();
+			console.log(data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	return (
 		<>
 			{/* Login Container */}
@@ -172,7 +195,7 @@ const Login = () => {
 						</form>
 					</div>
 					<div className='flex items-center justify-center mt-6'>
-						<Link to='/register' target='_blank' className='inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white'>
+						<Link to='/register' className='inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white'>
 							<span className='ml-2'>You don&#x27;t have an account?</span> <span className='underline text-blue-700'>Register</span>
 						</Link>
 					</div>

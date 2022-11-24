@@ -1,19 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FbaseAuthContext } from '../../Context/AuthContextAPI';
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const { currentUser, methodSignOut } = useContext(FbaseAuthContext);
+
+	// User logout
+	const handlerOnLogout = () => {
+		methodSignOut()
+			.then(() => {
+				// Sign-out successful.
+				localStorage.removeItem('jwtToken');
+			})
+			.catch((error) => {
+				// An error happened.
+			});
+	};
 	return (
 		<>
 			{/* Navbar Container */}
-			<div className='navbar-container shadow-lg'>
-				<div className='px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 '>
+			<div className='navbar-container '>
+				<div className='px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
 					<div className='relative flex items-center justify-between z-2'>
-						<NavLink to='/' aria-label='eduCamp' title='eduCamp' className='inline-flex items-center'>
+						<NavLink to='/' aria-label='carBazar' title='carBazar' className='inline-flex items-center'>
 							<span>
 								<img src='Images/logo.png' alt='logo' className='w-14 h-14' />
 							</span>
-							<span className='ml-2 text-xl lg:text-3xl font-bold tracking-wide text-gray-800 '>CarBazar</span>
+							<span className='ml-2 text-xl lg:text-3xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-red-800 to-red-500 '>CarBazar</span>
 						</NavLink>
 						<ul className='hidden items-center space-x-8 lg:flex'>
 							<li>
@@ -23,23 +37,23 @@ const Navbar = () => {
 									title='Home'
 									className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 									style={({ isActive }) => ({
-										textDecoration: isActive ? 'underline' : ''
+										color: isActive ? '#CD0000' : ''
 									})}
 								>
-									<span className='flex items-center justify-start hover:bg-slate-100 rounded-lg p-2 '>Home</span>
+									<span className='flex items-center justify-start text-xl hover:bg-slate-100 rounded-lg p-2 '>Home</span>
 								</NavLink>
 							</li>
 							<li>
 								<NavLink
-									to='/courses'
-									aria-label='Courses'
-									title='Courses'
+									to='/das'
+									aria-label='Dashboard'
+									title='Dashboard'
 									className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 									style={({ isActive }) => ({
-										textDecoration: isActive ? 'underline' : ''
+										color: isActive ? '#CD0000' : ''
 									})}
 								>
-									<span className='flex items-center justify-start hover:bg-slate-100 rounded-lg p-2'>Dashboard</span>
+									<span className=' flex items-center justify-start text-xl hover:bg-slate-100 rounded-lg p-2'>Dashboard</span>
 								</NavLink>
 							</li>
 							<li>
@@ -49,42 +63,42 @@ const Navbar = () => {
 									title='Blog'
 									className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 									style={({ isActive }) => ({
-										textDecoration: isActive ? 'underline' : ''
+										color: isActive ? '#CD0000' : ''
 									})}
 								>
-									<span className='flex items-center justify-start hover:bg-slate-100 rounded-lg p-2'>Blog</span>
+									<span className='flex items-center justify-start text-xl hover:bg-slate-100 rounded-lg p-2'>Blog</span>
 								</NavLink>
 							</li>
 						</ul>
 						<ul className='hidden items-center space-x-8 lg:flex'>
 							<li>
-								{/* {currentUser && currentUser.uid ? ( */}
-								<>
-									<NavLink to='/login'>
-										<button
-											className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-500 hover:bg-blue-900 focus:shadow-outline focus:outline-none'
-											aria-label='Logout'
-											title='Logout'
-											onClick={() => {
-												// handlerOnLogout();
-											}}
+								{currentUser && currentUser.uid ? (
+									<>
+										<NavLink to='/login'>
+											<button
+												className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-800 focus:shadow-outline focus:outline-none'
+												aria-label='Logout'
+												title='Logout'
+												onClick={() => {
+													handlerOnLogout();
+												}}
+											>
+												LOGOUT
+											</button>
+										</NavLink>
+									</>
+								) : (
+									<>
+										<NavLink
+											to='/login'
+											className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-800 focus:shadow-outline focus:outline-none'
+											aria-label='Login'
+											title='Login'
 										>
-											LOGOUT
-										</button>
-									</NavLink>
-								</>
-								{/* ) : ( */}
-								<>
-									<NavLink
-										to='/login'
-										className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-500 hover:bg-blue-900 focus:shadow-outline focus:outline-none'
-										aria-label='Login'
-										title='Login'
-									>
-										Login
-									</NavLink>
-								</>
-								{/* )} */}
+											Login
+										</NavLink>
+									</>
+								)}
 							</li>
 						</ul>
 						<div className='lg:hidden'>
@@ -109,7 +123,7 @@ const Navbar = () => {
 													<span>
 														<img src='Images/logo.png' alt='logo' className='w-16 h-1/2' />
 													</span>
-													<span className='ml-2 text-xl font-bold tracking-wide text-gray-800'>eduCamp</span>
+													<span className='ml-2 text-xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-red-800 to-red-500'>CarBazar</span>
 												</NavLink>
 											</div>
 											<div className='flex items-center justify-end'>
@@ -137,7 +151,7 @@ const Navbar = () => {
 														title='Home'
 														className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 														style={({ isActive }) => ({
-															textDecoration: isActive ? 'underline' : ''
+															color: isActive ? '#CD0000' : ''
 														})}
 													>
 														<span className='flex items-center justify-start'>Home</span>
@@ -145,12 +159,12 @@ const Navbar = () => {
 												</li>
 												<li>
 													<NavLink
-														to='/courses'
-														aria-label='Courses'
-														title='Courses'
+														to='/dashboard'
+														aria-label='Dashboard'
+														title='Dashboard'
 														className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 														style={({ isActive }) => ({
-															textDecoration: isActive ? 'underline' : ''
+															color: isActive ? '#CD0000' : ''
 														})}
 													>
 														<span className='flex items-center justify-start'>Dashboard</span>
@@ -163,7 +177,7 @@ const Navbar = () => {
 														title='Blog'
 														className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
 														style={({ isActive }) => ({
-															textDecoration: isActive ? 'underline' : ''
+															color: isActive ? '#CD0000' : ''
 														})}
 													>
 														<span className='flex items-center justify-start'>Blog</span>
@@ -171,34 +185,34 @@ const Navbar = () => {
 												</li>
 
 												<li>
-													{/* {currentUser && currentUser.uid ? ( */}
-													<>
-														<NavLink to='/login'>
-															<button
-																className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-500 hover:bg-blue-900 focus:shadow-outline focus:outline-none w-full md:w-1/2 md:block mx-auto'
-																aria-label='Logout'
-																title='Logout'
-																onClick={() => {
-																	// handlerOnLogout();
-																}}
-															>
-																LOGOUT
-															</button>
-														</NavLink>
-													</>
-													{/* ) : ( */}
-													<>
-														<NavLink to='/login'>
-															<button
-																className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-500 hover:bg-blue-900 focus:shadow-outline focus:outline-none w-full md:w-1/2 md:block mx-auto'
-																aria-label='Login'
-																title='Login'
-															>
-																Login
-															</button>
-														</NavLink>
-													</>
-													{/* )} */}
+													{currentUser && currentUser.uid ? (
+														<>
+															<NavLink to='/login'>
+																<button
+																	className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-800 focus:shadow-outline focus:outline-none'
+																	aria-label='Logout'
+																	title='Logout'
+																	onClick={() => {
+																		handlerOnLogout();
+																	}}
+																>
+																	LOGOUT
+																</button>
+															</NavLink>
+														</>
+													) : (
+														<>
+															<NavLink to='/login'>
+																<button
+																	className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-800 focus:shadow-outline focus:outline-none'
+																	aria-label='Login'
+																	title='Login'
+																>
+																	Login
+																</button>
+															</NavLink>
+														</>
+													)}
 												</li>
 											</ul>
 										</nav>
