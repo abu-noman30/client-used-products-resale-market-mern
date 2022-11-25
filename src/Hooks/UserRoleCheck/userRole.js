@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 
-const UserRoleCheck = (email) => {
+const useRole = (userEmail) => {
 	const [userRole, setUserRole] = useState('');
 	const [userRoleLoading, setUserRoleLoading] = useState(true);
 	useEffect(() => {
-		if (email) {
+		if (userEmail) {
 			const fetchAPI = async () => {
 				try {
-					const res = await fetch(`http://localhost:5000/users?email=${email}`);
+					const res = await fetch(`http://localhost:5000/users/role?email=${userEmail}`);
 					const data = await res.json();
-					console.log(data);
-					setUserRole(data.role);
+					// console.log(data);
+					setUserRole(data.accountType);
 					setUserRoleLoading(false);
 				} catch (error) {
 					console.error(error.stack);
@@ -18,9 +18,9 @@ const UserRoleCheck = (email) => {
 			};
 			fetchAPI();
 		}
-	}, [email]);
+	}, [userEmail]);
 
 	return [userRole, userRoleLoading];
 };
 
-export default UserRoleCheck;
+export default useRole;

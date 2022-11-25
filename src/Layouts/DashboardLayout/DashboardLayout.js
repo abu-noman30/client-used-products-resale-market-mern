@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as FAIcons from 'react-icons/fa';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { FbaseAuthContext } from '../../Context/AuthContextAPI';
+import useRole from '../../Hooks/UserRoleCheck/userRole';
 
 const DashboardLayout = () => {
+	const { currentUser, methodSignOut } = useContext(FbaseAuthContext);
+	const [userRole] = useRole(currentUser?.email);
+	const navigate = useNavigate();
+
+	// User logout
+	const handlerOnLogout = () => {
+		methodSignOut()
+			.then(() => {
+				// Sign-out successful.
+				localStorage.removeItem('jwtToken');
+				navigate('/');
+			})
+			.catch((error) => {
+				// An error happened.
+			});
+	};
 	return (
 		<>
 			{/* Dashboard Layout */}
@@ -11,7 +29,7 @@ const DashboardLayout = () => {
 					<input id='dashboard-drawer' type='checkbox' className='drawer-toggle' />
 					{/* <!-- Page content here --> */}
 					<div className='drawer-content bg-white'>
-						<div className='bg-white w-full h-16 shadow-lg flex items-center justify-end px-6'>
+						<div className='bg-white w-full h-16 shadow-lg flex items-center justify-end px-2'>
 							<label htmlFor='dashboard-drawer' className='btn btn-ghost drawer-button lg:hidden'>
 								<FAIcons.FaAlignJustify />
 							</label>
@@ -27,7 +45,15 @@ const DashboardLayout = () => {
 					<div className='drawer-side shadow-xl '>
 						<label htmlFor='dashboard-drawer' className='drawer-overlay'></label>
 						{/* <!-- Sidebar content here --> */}
-						<div className='flex flex-col w-64 px-4 py-8 bg-white border-r '>
+						<div className='flex flex-col w-64 px-4 py-8 bg-white border-r relative '>
+							<label htmlFor='dashboard-drawer' className='btn btn-ghost drawer-button lg:hidden absolute top-0 right-0'>
+								<FAIcons.FaAlignJustify />
+							</label>
+							<NavLink to='/'>
+								<div className='absolute right-4 top-[3.1rem] btn btn-ghost btn-sm border border-red-700'>
+									<FAIcons.FaHome className='text-red-700'/>
+								</div>
+							</NavLink>
 							<div className='flex justify-between'>
 								<div className=''>
 									<NavLink to='/' aria-label='Company' title='CarBazar' className='inline-flex items-center'>
@@ -62,7 +88,7 @@ const DashboardLayout = () => {
 							<div className='drawer-side'>
 								<label className='drawer-overlay' htmlFor='dashboard-drawer'></label>
 								<div className='flex flex-col justify-between flex-1 mt-6'>
-									<nav>
+									<nav className='relative'>
 										<Link to='/' className='flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-md '>
 											<svg className='w-5 h-5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
 												<path
@@ -77,87 +103,140 @@ const DashboardLayout = () => {
 											<span className='mx-4 font-medium'>Dashboard</span>
 										</Link>
 
-										<Link to='/' className='flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md  hover:bg-gray-200   hover:text-gray-700'>
-											<svg className='w-5 h-5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-												<path
-													d='M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z'
-													stroke='currentColor'
-													strokeWidth='2'
-													strokeLinecap='round'
-													strokeLinejoin='round'
-												/>
-												<path d='M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
-											</svg>
+										{userRole === 'buyer' && (
+											<Link to='/' className='flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md  hover:bg-gray-200   hover:text-gray-700'>
+												<svg className='w-5 h-5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+													<path
+														d='M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z'
+														stroke='currentColor'
+														strokeWidth='2'
+														strokeLinecap='round'
+														strokeLinejoin='round'
+													/>
+													<path d='M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+												</svg>
 
-											<span className='mx-4 font-medium'>My Orders</span>
-										</Link>
+												<span className='mx-4 font-medium'>My Orders</span>
+											</Link>
+										)}
 
-										<Link to='/' className='flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md  hover:bg-gray-200  hover:text-gray-700'>
-											<svg className='w-5 h-5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-												<path
-													d='M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z'
-													stroke='currentColor'
-													strokeWidth='2'
-													strokeLinecap='round'
-													strokeLinejoin='round'
-												/>
-											</svg>
+										{userRole === 'seller' && (
+											<>
+												<Link to='/' className='flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md  hover:bg-gray-200  hover:text-gray-700'>
+													<svg className='w-5 h-5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+														<path
+															d='M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z'
+															stroke='currentColor'
+															strokeWidth='2'
+															strokeLinecap='round'
+															strokeLinejoin='round'
+														/>
+													</svg>
 
-											<span className='mx-4 font-medium'>Add A product</span>
-										</Link>
-										<Link to='/' className='flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md hover:bg-gray-200  hover:text-gray-700'>
-											<svg className='w-5 h-5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-												<path
-													d='M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z'
-													stroke='currentColor'
-													strokeWidth='2'
-													strokeLinecap='round'
-													strokeLinejoin='round'
-												/>
-											</svg>
+													<span className='mx-4 font-medium'>Add A product</span>
+												</Link>
+												<Link to='/' className='flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md  hover:bg-gray-200  hover:text-gray-700'>
+													<svg className='w-5 h-5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+														<path
+															d='M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z'
+															stroke='currentColor'
+															strokeWidth='2'
+															strokeLinecap='round'
+															strokeLinejoin='round'
+														/>
+													</svg>
 
-											<span className='mx-4 font-medium'>My Buyers</span>
-										</Link>
-										<Link to='/' className='flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md  hover:bg-gray-200  hover:text-gray-700'>
-											<svg className='w-5 h-5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-												<path
-													d='M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z'
-													stroke='currentColor'
-													strokeWidth='2'
-													strokeLinecap='round'
-													strokeLinejoin='round'
-												/>
-											</svg>
+													<span className='mx-4 font-medium'>My Products</span>
+												</Link>
+												<Link to='/' className='flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md hover:bg-gray-200  hover:text-gray-700'>
+													<svg className='w-5 h-5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+														<path
+															d='M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z'
+															stroke='currentColor'
+															strokeWidth='2'
+															strokeLinecap='round'
+															strokeLinejoin='round'
+														/>
+													</svg>
 
-											<span className='mx-4 font-medium'>All Sellers</span>
-										</Link>
-										<Link to='/' className='flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md  hover:bg-gray-200  hover:text-gray-700'>
-											<svg className='w-5 h-5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-												<path
-													d='M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z'
-													stroke='currentColor'
-													strokeWidth='2'
-													strokeLinecap='round'
-													strokeLinejoin='round'
-												/>
-											</svg>
+													<span className='mx-4 font-medium'>My Buyers</span>
+												</Link>
+											</>
+										)}
 
-											<span className='mx-4 font-medium'>All Buyers</span>
-										</Link>
+										{userRole === 'admin' && (
+											<>
+												<Link to='/' className='flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md  hover:bg-gray-200  hover:text-gray-700'>
+													<svg className='w-5 h-5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+														<path
+															d='M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z'
+															stroke='currentColor'
+															strokeWidth='2'
+															strokeLinecap='round'
+															strokeLinejoin='round'
+														/>
+													</svg>
 
-										<hr className='my-6 border-gray-200' />
-										<NavLink to='/login'>
-											<button
-												className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-800 focus:shadow-outline focus:outline-none'
-												aria-label='Logout'
-												title='Logout'
-												onClick={() => {
-													handlerOnLogout();
-												}}
-											>
-												LOGOUT
-											</button>
-										</NavLink>
+													<span className='mx-4 font-medium'>All Sellers</span>
+												</Link>
+												<Link to='/' className='flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md  hover:bg-gray-200  hover:text-gray-700'>
+													<svg className='w-5 h-5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+														<path
+															d='M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z'
+															stroke='currentColor'
+															strokeWidth='2'
+															strokeLinecap='round'
+															strokeLinejoin='round'
+														/>
+													</svg>
+
+													<span className='mx-4 font-medium'>All Buyers</span>
+												</Link>
+												<Link to='/' className='flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md  hover:bg-gray-200  hover:text-gray-700'>
+													<svg className='w-5 h-5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+														<path
+															d='M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z'
+															stroke='currentColor'
+															strokeWidth='2'
+															strokeLinecap='round'
+															strokeLinejoin='round'
+														/>
+													</svg>
+
+													<span className='mx-4 font-medium'>Repoted Items</span>
+												</Link>
+											</>
+										)}
+
+										<hr className='my-6 border-gray-200 absolute bottom-20' />
+										{currentUser && currentUser.uid ? (
+											<>
+												<NavLink to='/login' className='fixed bottom-5 '>
+													<button
+														className='inline-flex items-center justify-center h-12 px-16 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-800 focus:shadow-outline focus:outline-none '
+														aria-label='Logout'
+														title='Logout'
+														onClick={() => {
+															handlerOnLogout();
+														}}
+													>
+														LOGOUT
+													</button>
+												</NavLink>
+											</>
+										) : (
+											<>
+												<NavLink to='/login' className='fixed bottom-5 '>
+													<button
+														className='inline-flex items-center justify-center h-12 px-20 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-800 focus:shadow-outline focus:outline-none '
+														aria-label='Login'
+														title='Login'
+													>
+														LOGIN
+													</button>
+												</NavLink>
+											</>
+										)}
 									</nav>
 								</div>
 							</div>
