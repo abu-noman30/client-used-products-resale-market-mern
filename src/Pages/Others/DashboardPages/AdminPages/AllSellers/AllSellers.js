@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import DeleteSellerModal from '../../../../../Components/Other/DeleteSellerModal/DeleteSellerModal';
+import DeleteModal from '../../../../../Components/Other/DeleteModal/DeleteModal';
 
 const AllSellers = () => {
 	const [modalData, setModalData] = useState({});
@@ -76,6 +76,9 @@ const AllSellers = () => {
 										Email
 									</th>
 									<th scope='col' className='py-3 px-6'>
+										Account Type
+									</th>
+									<th scope='col' className='py-3 px-6'>
 										Verification Status
 									</th>
 									<th scope='col' className='py-3 px-6'>
@@ -91,6 +94,7 @@ const AllSellers = () => {
 										</th>
 										<td className='py-4 px-6'>{seller.name}</td>
 										<td className='py-4 px-6'>{seller.email}</td>
+										<td className='py-4 px-6 text-black font-bold bg-gray-50'>{seller.accountType === 'seller' && 'SELLER'}</td>
 										<td className='py-4 px-6'>
 											{seller?.verification === 'verified' ? (
 												<button className='btn btn-success btn-xs border-gray-200'>Verified</button>
@@ -126,7 +130,7 @@ const AllSellers = () => {
 			{/* Modal - Body Container */}
 			{modalData && (
 				<div className='modal-container'>
-					<DeleteSellerModal handlerOnConfirmModal={handlerOnConfirmModal} handlerOnCancelModal={handlerOnCancelModal} modalData={modalData} />
+					<DeleteModal handlerOnConfirmModal={handlerOnConfirmModal} handlerOnCancelModal={handlerOnCancelModal} modalData={modalData} />
 				</div>
 			)}
 		</>
