@@ -45,7 +45,7 @@ const Navbar = () => {
 							</li>
 							<li>
 								<NavLink
-									to='/das'
+									to='/dashboard'
 									aria-label='Dashboard'
 									title='Dashboard'
 									className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
@@ -119,7 +119,7 @@ const Navbar = () => {
 									<div className='p-5 bg-white border rounded shadow-sm'>
 										<div className='flex items-center justify-between mb-4'>
 											<div>
-												<NavLink to='/' aria-label='Company' title='eduCamp' className='inline-flex items-center'>
+												<NavLink to='/' aria-label='Company' title='CarBazar' className='inline-flex items-center'>
 													<span>
 														<img src='Images/logo.png' alt='logo' className='w-16 h-1/2' />
 													</span>

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { FbaseAuthContext } from '../../Context/AuthContextAPI';
 
 const BookNowModal = (props) => {
@@ -19,10 +20,40 @@ const BookNowModal = (props) => {
 		const carModel = form.carModel.value;
 		const price = form.price.value;
 		const meetingPlace = form.meetingPlace.value;
-		console.log(fullname, email, phoneNumber, carModel, price, meetingPlace);
-
-		setBookNowModalData(null);
+		// console.log(fullname, email, phoneNumber, carModel, price, meetingPlace);
+		if (fullname && email && phoneNumber && carModel && price && meetingPlace) {
+			const bookingData = {
+				buyerInfo: {
+					buyerName: fullname,
+					email: email,
+					phoneNumber: phoneNumber
+				},
+				carInfo: {
+					carModel: carModel,
+					price: price
+				},
+				meetingPlace: meetingPlace
+			};
+			storeDookingDataToDatabase(bookingData);
+		}
 	};
+
+	const storeDookingDataToDatabase = async (bookingData) => {
+		const res = await fetch('http://localhost:5000/booking', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(bookingData)
+		});
+		const data = await res.json();
+		// console.log(data);
+		if (data.acknowledged === true) {
+			toast.success('Booking Successfull');
+			setBookNowModalData(null);
+		}
+	};
+	// setBookNowModalData(null);
 
 	return (
 		<>
