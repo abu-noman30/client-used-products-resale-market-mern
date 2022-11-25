@@ -5,6 +5,7 @@ import AvailableCars from '../Pages/AvailableCars/AvailableCars';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
+import AddProduct from '../Pages/Others/DashboardPages/AddProduct/AddProduct';
 import Register from '../Pages/Register/Register';
 
 const router = createBrowserRouter([
@@ -43,12 +44,13 @@ const router = createBrowserRouter([
 		element: <DashboardLayout />,
 		children: [
 			{
-				index: true,
+				index: true
 				// element: <Dashboard />
 			},
 			{
-				path:'my-orders',
-			},
+				path: 'add-product',
+				element: <AddProduct />
+			}
 		]
 	}
 ]);

@@ -20,9 +20,13 @@ const SingleCarCard = (props) => {
 						{/* :CARD IMAGE & CATEGORY */}
 						<div className='relative w-full overflow-hidden'>
 							{/* ::Image */}
-							<img src={image} alt='' className='w-full h-[16rem] object-cover object-center transition-all duration-300 transform group-hover:scale-110' />
+							<div className=''>
+								<img src={image} alt='' className='w-full h-[16rem] object-cover object-center transition-all duration-300 transform group-hover:scale-110' />
+							</div>
 							{/* ::Category */}
-							<h2 className='absolute left-6 inline-block pt-0.5 pb-1.5 px-2 rounded-md text-sm text-gray-100 subpixel-antialiased font-medium bg-gradient-to-br from-green-500 to-blue-500 cursor-pointer'>Category</h2>
+							<div className='absolute top-2 left-2'>
+								<h2 className='absolute top-0  inline-block pt-0.5 pb-1.5 px-2 rounded-md text-sm text-red-900 subpixel-antialiased font-medium bg-gradient-to-br from-green-500 to-blue-500 cursor-pointer '>Category</h2>
+							</div>
 						</div>
 
 						{/* :CARD BODY */}

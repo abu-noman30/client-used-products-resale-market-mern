@@ -4,13 +4,18 @@ import App from './App';
 import AuthContextAPI from './Context/AuthContextAPI';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<AuthContextAPI>
-			<App />
-		</AuthContextAPI>
+		<QueryClientProvider client={queryClient}>
+			{/* Data fetching using - TanStack Query */}
+			<AuthContextAPI>
+				<App />
+			</AuthContextAPI>
+		</QueryClientProvider>
 	</React.StrictMode>
 );
 
