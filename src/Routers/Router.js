@@ -5,7 +5,10 @@ import AvailableCars from '../Pages/AvailableCars/AvailableCars';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
-import AddProduct from '../Pages/Others/DashboardPages/AddProduct/AddProduct';
+import Dashboard from '../Pages/Others/DashBoard/Dashboard';
+import AllSellers from '../Pages/Others/DashboardPages/AdminPages/AllSellers/AllSellers';
+import AddProduct from '../Pages/Others/DashboardPages/SellerPages/AddProduct/AddProduct';
+import MyProducts from '../Pages/Others/DashboardPages/SellerPages/MyProducts/MyProducts';
 import Register from '../Pages/Register/Register';
 
 const router = createBrowserRouter([
@@ -44,12 +47,20 @@ const router = createBrowserRouter([
 		element: <DashboardLayout />,
 		children: [
 			{
-				index: true
-				// element: <Dashboard />
+				index: true,
+				element: <Dashboard />
 			},
 			{
 				path: 'add-product',
 				element: <AddProduct />
+			},
+			{
+				path: 'my-products',
+				element: <MyProducts />
+			},
+			{
+				path: 'all-sellers',
+				element: <AllSellers />
 			}
 		]
 	}

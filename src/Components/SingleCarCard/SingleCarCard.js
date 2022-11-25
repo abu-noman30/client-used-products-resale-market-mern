@@ -1,4 +1,5 @@
 import React from 'react';
+import * as BSIcons from 'react-icons/bs';
 
 const SingleCarCard = (props) => {
 	const { car, setBookNowModalData } = props;
@@ -55,11 +56,7 @@ const SingleCarCard = (props) => {
 						<div className='py-3 px-2 flex flex-wrap justify-around border-t border-gray-200'>
 							{/* ::Author */}
 							<span className='py-0.5 px-1.5 flex items-center text-xs text-gray-500 font-semibold tracking-wide cursor-pointer'>
-								{verified === 'verified' && (
-									<svg xmlns='http://www.w3.org/2000/svg' className='mr-1 h-4 w-4' viewBox='0 0 20 20' fill='currentColor'>
-										<path fillRule='evenodd' d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z' clipRule='evenodd' />
-									</svg>
-								)}
+								{verified === 'verified' && <BSIcons.BsFillCheckCircleFill className='text-blue-600 mr-1' />}
 								{name}
 							</span>
 							{/* ::Date */}

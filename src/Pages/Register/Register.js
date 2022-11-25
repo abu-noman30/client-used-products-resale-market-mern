@@ -50,7 +50,8 @@ const Register = () => {
 		const usersData = {
 			name: userName,
 			email: userEmail,
-			accountType: accountType
+			accountType: accountType,
+			verification: 'pending'
 		};
 		try {
 			const res = await fetch('http://localhost:5000/users', {

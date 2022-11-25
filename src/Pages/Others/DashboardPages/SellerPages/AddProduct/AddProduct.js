@@ -1,10 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';
-import React, { useContext } from 'react';
-import { FbaseAuthContext } from '../../../../Context/AuthContextAPI';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { FbaseAuthContext } from '../../../../../Context/AuthContextAPI';
 
 const AddProduct = () => {
 	const { currentUser } = useContext(FbaseAuthContext);
+	const [sellerVerification, setSellerVerification] = useState({});
+	const navigate = useNavigate();
+
 	const { data: brands = [] } = useQuery({
 		queryKey: [],
 		queryFn: async () => {
@@ -14,6 +19,14 @@ const AddProduct = () => {
 		}
 	});
 
+	fetch(`http://localhost:5000/users/verified?email=${currentUser.email}`)
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(data);
+			setSellerVerification(data.verification);
+		})
+
+		.catch((err) => console.error(err));
 	const handlerOnSubmit = (e) => {
 		e.preventDefault();
 
@@ -64,11 +77,11 @@ const AddProduct = () => {
 							phone: phone,
 							location: location,
 							post_date: format(new Date(), '	PPpp'),
-							verified: 'unverified'
+							verified: sellerVerification
 						}
 					};
 					console.log(productData);
-					// handlerOnAddDoctor(doctorData);
+					handlerOnAddProduct(productData);
 				}
 			})
 			.catch((error) => {
@@ -76,6 +89,27 @@ const AddProduct = () => {
 			});
 	};
 
+	const handlerOnAddProduct = async (productData) => {
+		try {
+			const res = await fetch('http://localhost:5000/add-product', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					authorization: `Bearer ${localStorage.getItem('jwtToken')}`
+				},
+				body: JSON.stringify(productData)
+			});
+			const data = await res.json();
+
+			if (data.acknowledged === true) {
+				console.log(data);
+				toast.success('Product added successfully');
+				navigate('dashboard/my-products');
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	return (
 		<>
 			{/* Add Product Container */}

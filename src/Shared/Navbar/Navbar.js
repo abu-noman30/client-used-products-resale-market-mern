@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FbaseAuthContext } from '../../Context/AuthContextAPI';
+import useRole from '../../Hooks/UserRoleCheck/userRole';
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { currentUser, methodSignOut } = useContext(FbaseAuthContext);
+	const [userRole] = useRole(currentUser?.email);
+
 
 	// User logout
 	const handlerOnLogout = () => {
