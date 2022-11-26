@@ -1,13 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FbaseAuthContext } from '../../Context/AuthContextAPI';
-import useRole from '../../Hooks/UserRoleCheck/userRole';
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { currentUser, methodSignOut } = useContext(FbaseAuthContext);
-	const [userRole] = useRole(currentUser?.email);
-
 
 	// User logout
 	const handlerOnLogout = () => {
@@ -23,8 +20,8 @@ const Navbar = () => {
 	return (
 		<>
 			{/* Navbar Container */}
-			<div className='navbar-container '>
-				<div className='px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
+			<div className='navbar-container w-11/12 mx-auto'>
+				<div className='py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-4'>
 					<div className='relative flex items-center justify-between z-2'>
 						<NavLink to='/' aria-label='carBazar' title='carBazar' className='inline-flex items-center'>
 							<span>

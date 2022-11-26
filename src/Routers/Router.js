@@ -8,6 +8,8 @@ import Login from '../Pages/Login/Login';
 import Dashboard from '../Pages/Others/DashBoard/Dashboard';
 import AllBuyers from '../Pages/Others/DashboardPages/AdminPages/AllBuyers/AllBuyers';
 import AllSellers from '../Pages/Others/DashboardPages/AdminPages/AllSellers/AllSellers';
+import ReportedItems from '../Pages/Others/DashboardPages/AdminPages/ReportedItems/ReportedItems';
+import MyOrders from '../Pages/Others/DashboardPages/BuyerPages/MyOrders/MyOrders';
 import AddProduct from '../Pages/Others/DashboardPages/SellerPages/AddProduct/AddProduct';
 import MyProducts from '../Pages/Others/DashboardPages/SellerPages/MyProducts/MyProducts';
 import Register from '../Pages/Register/Register';
@@ -66,6 +68,14 @@ const router = createBrowserRouter([
 			{
 				path: 'all-buyers',
 				element: <AllBuyers />
+			},
+			{
+				path: 'my-orders',
+				element: <MyOrders />
+			},
+			{
+				path: 'reported-items',
+				element: <ReportedItems />
 			}
 		]
 	}

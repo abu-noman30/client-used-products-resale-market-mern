@@ -74,6 +74,7 @@ const AddProduct = () => {
 						used_for: format(new Date(), 'yyyy') - purchaseYear,
 						seller_info: {
 							name: currentUser.displayName,
+							email: currentUser.email,
 							phone: phone,
 							location: location,
 							post_date: format(new Date(), '	PPpp'),

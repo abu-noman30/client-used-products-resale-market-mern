@@ -2,10 +2,13 @@ import React from 'react';
 import * as BSIcons from 'react-icons/bs';
 
 const SingleCarCard = (props) => {
-	const { car, setBookNowModalData } = props;
+	const { setConfirmModal } = props;
+	const { setBookNowModalData } = props;
+	const { car } = props;
 	const {
 		image,
 		car_name,
+		condition: { badge },
 		seller_info: { location, post_date, name, verified },
 		price: { original_price, resale_price },
 		used_for
@@ -15,7 +18,7 @@ const SingleCarCard = (props) => {
 		<>
 			{/* Single Car Card Container */}
 			<div className='single-car-card-container'>
-				<div className='mb-4 p-0 sm:p-4 w-full'>
+				<div className='mb-4 p-4 w-full'>
 					{/* Card container */}
 					<div className='group h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden shadow-lg'>
 						{/* :CARD IMAGE & CATEGORY */}
@@ -26,20 +29,34 @@ const SingleCarCard = (props) => {
 							</div>
 							{/* ::Category */}
 							<div className='absolute top-2 left-2'>
-								<h2 className='absolute top-0  inline-block pt-0.5 pb-1.5 px-2 rounded-md text-sm text-red-900 subpixel-antialiased font-medium bg-gradient-to-br from-green-500 to-blue-500 cursor-pointer '>Category</h2>
+								<h2 className='absolute top-0  inline-block pt-0.5 pb-1.5 px-2 rounded-md text-sm text-white subpixel-antialiased font-medium bg-gradient-to-br from-red-900 to-red-500 cursor-pointer '>{badge}</h2>
 							</div>
 						</div>
 
 						{/* :CARD BODY */}
-						<div className='my-6 py-3 px-8 flex flex-col'>
+						<div className=' py-3 px-8 flex flex-col'>
 							{/* ::Title */}
-							<h1 className='text-2xl text-left font-bold text-gray-800 antialiased'>{car_name}</h1>
-							<h1 className='text-md text-left  text-gray-500  antialiased'>( {used_for} used )</h1>
+							<div className=' flex  items-center justify-between'>
+								<h1 className='text-2xl text-left font-bold text-gray-800 antialiased'>{car_name}</h1>
+								<p className='text-md text-left  text-gray-500  antialiased'>(Used for {used_for} years )</p>
+							</div>
+
 							{/* ::Excerpt */}
-							<p className='line-clamp-8 py-5 overflow-hidden leading-relaxed text-sm text-gray-500 text-left font-medium cursor-pointer'>Orginal Price: ${original_price}</p>
+							<div className=' flex items-center justify-between'>
+								<p className=' py-3 overflow-hidden leading-relaxed text-lg text-gray-500 text-left font-medium cursor-pointer'>Orginal Price:</p>
+								<p className=' py-3 overflow-hidden leading-relaxed text-lg text-gray-500 text-left font-medium cursor-pointer'>
+									<span className='text-red-600 text-right'>${original_price}</span>
+								</p>
+							</div>
 							{/* ::Read more */}
-							<div className='font-bold text-3xl -my-2 flex items-center justify-end text-red-700'>${resale_price}</div>
-							<div className=''>
+							<div className=' flex items-center justify-between'>
+								<p className='overflow-hidden leading-relaxed text-lg text-gray-500 text-left font-medium cursor-pointer'>Resale Price:</p>
+								<p className=''>
+									<span className='font-bold text-3xl -my-2 flex items-center justify-end text-red-700'>${resale_price}</span>
+								</p>
+							</div>
+
+							<div className='flex flex-row-reverse items-center justify-between mt-5'>
 								<label
 									htmlFor='book-now-modal'
 									className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-800 focus:shadow-outline focus:outline-none'
@@ -48,6 +65,9 @@ const SingleCarCard = (props) => {
 									onClick={() => setBookNowModalData(car)}
 								>
 									Book Now
+								</label>
+								<label htmlFor='confirm-modal' className='btn btn-xs bg-red-800 hover:bg-red-800 mt-5' onClick={() => setConfirmModal(car)}>
+									Report Item
 								</label>
 							</div>
 						</div>
@@ -77,6 +97,7 @@ const SingleCarCard = (props) => {
 					</div>
 				</div>
 			</div>
+			{/* Modal - Body Container */}
 		</>
 	);
 };

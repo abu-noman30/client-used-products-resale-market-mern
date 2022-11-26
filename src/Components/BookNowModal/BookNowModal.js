@@ -29,11 +29,14 @@ const BookNowModal = (props) => {
 					phoneNumber: phoneNumber
 				},
 				carInfo: {
+					_id: bookNowModalData?._id,
 					carModel: carModel,
+					image: bookNowModalData?.image,
 					price: price
 				},
 				meetingPlace: meetingPlace
 			};
+			console.log(bookingData);
 			storeDookingDataToDatabase(bookingData);
 		}
 	};

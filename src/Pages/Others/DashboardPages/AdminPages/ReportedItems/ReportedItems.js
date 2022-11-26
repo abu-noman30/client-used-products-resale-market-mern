@@ -1,27 +1,26 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import DeleteModal from '../../../../../Components/Other/DeleteModal/DeleteModal';
-import { FbaseAuthContext } from '../../../../../Context/AuthContextAPI';
 
-const MyProducts = () => {
-	const { currentUser } = useContext(FbaseAuthContext);
+const ReportedItems = () => {
+	// const { currentUser } = useContext(FbaseAuthContext);
 	const [modalData, setModalData] = useState({});
 
-	const { data: products = [], refetch } = useQuery({
+	const { data: reportedItems = [], refetch } = useQuery({
 		queryKey: [],
 		queryFn: async () => {
-			const res = await fetch(`http://localhost:5000/products?email=${currentUser.email}`);
+			const res = await fetch('http://localhost:5000/reported-items');
 			const data = await res.json();
 			return data;
 		}
 	});
-	console.log(products);
+	console.log(reportedItems);
 
 	const handlerOnConfirmModal = async (id) => {
 		console.log('Confirm', id);
 		try {
-			const res = await fetch(`http://localhost:5000/products/${id}`, {
+			const res = await fetch(`http://localhost:5000/reported-items/${id}`, {
 				method: 'DELETE',
 				headers: {
 					'Content-Type': 'application/json',
@@ -29,8 +28,8 @@ const MyProducts = () => {
 				}
 			});
 			const data = await res.json();
-			console.log(data);
-			if (data.deletedCount > 0) {
+			console.log(data.deleteItemReport);
+			if (data.deleteItemReport.deletedCount > 0) {
 				toast.success('Order deleted successfully');
 				refetch();
 			}
@@ -44,8 +43,8 @@ const MyProducts = () => {
 	};
 	return (
 		<>
-			{/* My Products Container */}
-			<div className='my-products-container'>
+			{/* Reported Items Container */}
+			<div className='reported-items-container'>
 				<div className=''>
 					<div className='overflow-x-auto relative shadow-lg sm:rounded-lg'>
 						<table className='w-full text-sm text-left text-gray-500 bg-white'>
@@ -60,10 +59,10 @@ const MyProducts = () => {
 										Price
 									</th>
 									<th scope='col' className='py-3 px-2 text-center'>
-										Sale Status
+										Seller
 									</th>
-									<th scope='col' className='py-3 px-2 text-start'>
-										Advertise
+									<th scope='col' className='py-3 px-2 text-center'>
+										Buyer
 									</th>
 									<th scope='col' className='py-3 px-2 text-start'>
 										Action
@@ -71,28 +70,38 @@ const MyProducts = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{products.map((product, index) => (
-									<tr className='bg-white border-b hover:bg-gray-50 ' key={product._id}>
+								{reportedItems.map((item, index) => (
+									<tr className='bg-white border-b hover:bg-gray-50 ' key={item._id}>
 										<th scope='row' className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
 											{index + 1}
 										</th>
 										<td className='py-1 px-1'>
 											<div className='avatar'>
 												<div className='w-20 rounded'>
-													<img src={product?.image} alt='Tailwind-CSS-Avatar-component' className='' />
+													<img src={item?.car?.image} alt='Tailwind-CSS-Avatar-component' className='' />
 												</div>
 											</div>
 										</td>
-										<td className='py-4 px-2'>{product?.car_name}</td>
-										<td className='py-4 px-2'>{product?.price?.resale_price}</td>
-										<td className='py-4 px-2 bg-gray-100 font-bold text-black text-center'>Sale Status</td>
-										<td className='py-4 px-2'>Advertise</td>
+										<td className='py-4 px-2'>{item?.car?.car_name}</td>
+										<td className='py-4 px-2'>
+											<p>{item?.car?.price?.orginal_price}</p>
+											<p>{item?.car?.price?.resale_price}</p>
+										</td>
+										<td className='py-4 px-2 bg-gray-100 text-center'>
+											<p>{item?.car?.seller_info?.name}</p>
+											<p>{item?.car?.seller_info?.email}</p>
+											<p>{item?.car?.seller_info?.phone}</p>
+										</td>
+										<td className='py-4 px-2 bg-gray-100 text-center'>
+											<p>{item?.buyerInfo?.name}</p>
+											<p>{item?.buyerInfo?.email}</p>
+										</td>
 										<td className='py-4 px-2'>
 											<label
 												htmlFor='my-modal'
 												className='btn bg-red-800 hover:bg-red-900 btn-xs'
 												onClick={() => {
-													setModalData(product);
+													setModalData(item);
 												}}
 											>
 												DELETE
@@ -115,4 +124,4 @@ const MyProducts = () => {
 	);
 };
 
-export default MyProducts;
+export default ReportedItems;

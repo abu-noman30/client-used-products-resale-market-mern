@@ -65,20 +65,20 @@ const AllBuyers = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{buyers.map((seller, index) => (
-									<tr className='bg-white border-b hover:bg-gray-50 ' key={seller._id}>
+								{buyers.map((buyer, index) => (
+									<tr className='bg-white border-b hover:bg-gray-50 ' key={buyer._id}>
 										<th scope='row' className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
 											{index + 1}
 										</th>
-										<td className='py-4 px-6'>{seller.name}</td>
-										<td className='py-4 px-6'>{seller.email}</td>
-										<td className='py-4 px-6 bg-gray-100 font-bold text-black'>{seller.accountType === 'buyer' && 'BUYER'}</td>
+										<td className='py-4 px-6'>{buyer.name}</td>
+										<td className='py-4 px-6'>{buyer.email}</td>
+										<td className='py-4 px-6 bg-gray-100 font-bold text-black'>{buyer.accountType === 'buyer' && 'BUYER'}</td>
 										<td className='py-4 px-6 flex items-center justify-start'>
 											<label
 												htmlFor='my-modal'
 												className='btn bg-red-800 hover:bg-red-900 btn-xs'
 												onClick={() => {
-													setModalData(seller);
+													setModalData(buyer);
 												}}
 											>
 												DELETE
