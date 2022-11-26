@@ -31,7 +31,7 @@ const MyProducts = () => {
 			const data = await res.json();
 			console.log(data);
 			if (data.deletedCount > 0) {
-				toast.success('Order deleted successfully');
+				toast.success('Product deleted successfully');
 				refetch();
 			}
 		} catch (error) {
@@ -41,6 +41,24 @@ const MyProducts = () => {
 	const handlerOnCancelModal = () => {
 		console.log('Cancel');
 		setModalData({});
+	};
+
+	const handlerOnAdvertiseProduct = async (product) => {
+		// console.log('Advertise', product);
+		const res = await fetch('http://localhost:5000/advertise', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				authorization: `Bearer ${localStorage.getItem('jwtToken')}`
+			},
+			body: JSON.stringify(product)
+		});
+		const data = await res.json();
+		console.log(data);
+		if (data.insertedId) {
+			toast.success('Product Added for advertise successfully');
+			refetch();
+		}
 	};
 	return (
 		<>
@@ -85,8 +103,25 @@ const MyProducts = () => {
 										</td>
 										<td className='py-4 px-2'>{product?.car_name}</td>
 										<td className='py-4 px-2'>{product?.price?.resale_price}</td>
-										<td className='py-4 px-2 bg-gray-100 font-bold text-black text-center'>Sale Status</td>
-										<td className='py-4 px-2'>Advertise</td>
+										<td className='py-4 px-2 bg-gray-100 font-bold text-black text-center'>
+											{product?.sales_status === 'sold' ? <div className='badge badge-success'>SOLD</div> : <div className='badge badge-warning'>AVAILABLE</div>}
+										</td>
+										<td className='py-4 px-2'>
+											{product?.sales_status === 'sold' ? (
+												<button className='btn btn-xs' disabled>
+													advertise
+												</button>
+											) : (
+												<button
+													className='btn btn-xs btn-primary'
+													onClick={() => {
+														handlerOnAdvertiseProduct(product);
+													}}
+												>
+													advertise
+												</button>
+											)}
+										</td>
 										<td className='py-4 px-2'>
 											<label
 												htmlFor='my-modal'

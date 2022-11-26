@@ -34,7 +34,8 @@ const BookNowModal = (props) => {
 					image: bookNowModalData?.image,
 					price: price
 				},
-				meetingPlace: meetingPlace
+				meetingPlace: meetingPlace,
+				paymentStatus: 'pending'
 			};
 			console.log(bookingData);
 			storeDookingDataToDatabase(bookingData);

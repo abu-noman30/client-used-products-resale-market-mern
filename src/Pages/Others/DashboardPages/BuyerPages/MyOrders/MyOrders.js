@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import DeleteModal from '../../../../../Components/Other/DeleteModal/DeleteModal';
 import { FbaseAuthContext } from '../../../../../Context/AuthContextAPI';
 
@@ -98,10 +99,19 @@ const MyOrders = () => {
 										</td>
 										<td className='py-4 px-2'>{order?.meetingPlace}</td>
 										<td className='py-4 px-2'>
-											<button className='btn btn-xs btn-warning'>Unpaid</button>
+											{order?.paymentStatus === 'pending' && <div className='badge badge-warning'>Unpaid</div>}
+											{order?.paymentStatus === 'paid' && <div className='badge badge-warning'>Paid</div>}
 										</td>
 										<td className='py-4 px-2'>
-											<button className='btn btn-xs btn-primary '>pay</button>
+											{order?.paymentStatus === 'pending' ? (
+												<Link to={`/dashboard/my-orders/payment/${order._id}`}>
+													<button className='btn btn-xs btn-primary'> pay</button>
+												</Link>
+											) : (
+												<button className='btn btn-xs btn-primary' disabled>
+													pay
+												</button>
+											)}
 										</td>
 										<td className='py-4 px-2'>
 											<label

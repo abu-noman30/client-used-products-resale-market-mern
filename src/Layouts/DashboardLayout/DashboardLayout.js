@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import * as FAIcons from 'react-icons/fa';
 import { Link, NavLink, Outlet } from 'react-router-dom';
+import DashboardNav from '../../Components/Other/DashboardNav/DashboardNav';
 import { FbaseAuthContext } from '../../Context/AuthContextAPI';
 import useRole from '../../Hooks/UserRoleCheck/userRole';
 
@@ -27,10 +28,15 @@ const DashboardLayout = () => {
 					<input id='dashboard-drawer' type='checkbox' className='drawer-toggle' />
 					{/* <!-- Page content here --> */}
 					<div className='drawer-content bg-white'>
-						<div className='bg-white w-full h-16 shadow-lg flex items-center justify-end px-2'>
-							<label htmlFor='dashboard-drawer' className='btn btn-ghost drawer-button lg:hidden'>
-								<FAIcons.FaAlignJustify />
-							</label>
+						<div className='bg-white w-full shadow-lg  px-2'>
+							<div className='flex items-center justify-center ml:0 lg:ml-96 '>
+								<DashboardNav />
+							</div>
+							<div className='flex items-center justify-end -mt-3 pb-3'>
+								<label htmlFor='dashboard-drawer' className='btn btn-ghost drawer-button lg:hidden'>
+									<FAIcons.FaAlignJustify />
+								</label>
+							</div>
 						</div>
 						{/* Outlet Section */}
 						<section className='outlet-section p-8'>

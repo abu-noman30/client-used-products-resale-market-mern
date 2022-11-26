@@ -105,7 +105,7 @@ const AddProduct = () => {
 			if (data.acknowledged === true) {
 				console.log(data);
 				toast.success('Product added successfully');
-				navigate('dashboard/my-products');
+				navigate('/dashboard/my-products');
 			}
 		} catch (error) {
 			console.log(error);
