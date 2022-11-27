@@ -1,7 +1,8 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
+import { ClockLoader } from 'react-spinners';
 import CheckoutForm from './CheckoutForm';
 
 //  Set `loadStripe` outside of a component’s
@@ -9,7 +10,19 @@ const stripePromise = loadStripe(process.env.REACT_APP_stripe_pk);
 const Payment = () => {
 	const loaderData = useLoaderData();
 	const orderData = loaderData;
-	console.log(loaderData);
+	// console.log(loaderData);
+	const navigation = useNavigation();
+
+	if (navigation.state === 'loading') {
+		return (
+			// Spinner component
+			<div className='w-1/2 mx-auto h-[28rem] my-auto flex items-center justify-center'>
+				<span className=''>
+					<ClockLoader color='#777777' />
+				</span>
+			</div>
+		);
+	}
 	return (
 		<>
 			{/* Payment Container */}

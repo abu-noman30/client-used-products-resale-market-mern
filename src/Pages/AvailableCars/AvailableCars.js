@@ -1,21 +1,34 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import BookNowModal from '../../Components/BookNowModal/BookNowModal';
 import ConfirmModal from '../../Components/Other/ConfirmModal/ConfirmModal';
 import SingleCarCard from '../../Components/SingleCarCard/SingleCarCard';
+import ClockLoader from 'react-spinners/ClockLoader';
 
 const AvailableCars = () => {
 	const loaderData = useLoaderData();
 	const cars = loaderData;
-	console.log('car loader data', loaderData);
 	const [bookNowModalData, setBookNowModalData] = useState(null);
 	const [confirmModal, setConfirmModal] = useState({});
+	const navigation = useNavigation();
+	console.log(navigation);
+
+	if (navigation.state === 'loading') {
+		return (
+			// Spinner component
+			<div className='w-1/2 mx-auto h-[26rem] my-auto flex items-center justify-center'>
+				<span className=''>
+					<ClockLoader color='#777777' />
+				</span>
+			</div>
+		);
+	}
 
 	const availableCars = cars.filter((availableCar) => {
 		return availableCar?.sales_status !== 'sold';
 	});
 
-	console.log('available cars', availableCars);
+	// console.log('available cars', availableCars);
 
 	return (
 		<>
