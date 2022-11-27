@@ -1,4 +1,6 @@
 import React from 'react';
+import Testimonial from '../../Components/Testimonial/Testimonial';
+import Advertise from '../../Shared/Advertise/Advertise';
 import CarCatagory from '../../Shared/CarCatagory/CarCatagory';
 import Header from '../../Shared/Header/Header';
 
@@ -19,7 +21,13 @@ const Home = () => {
 				{/* Secure Transation Section */}
 				<section className='secure-transation-section'>{/* <SecureTransation /> */}</section>
 				{/* Advertise Section */}
-				<section className='advertise-section'></section>
+				<section className='advertise-section'>
+					<Advertise />
+				</section>
+				{/* Testimonial Section */}
+				<section className='testimonial-section'>
+					<Testimonial />
+				</section>
 			</div>
 		</>
 	);

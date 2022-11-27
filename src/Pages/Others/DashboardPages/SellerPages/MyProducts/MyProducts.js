@@ -58,6 +58,8 @@ const MyProducts = () => {
 		if (data.insertedId) {
 			toast.success('Product Added for advertise successfully');
 			refetch();
+		} else {
+			toast.error('Product already added for advertise');
 		}
 	};
 	return (
