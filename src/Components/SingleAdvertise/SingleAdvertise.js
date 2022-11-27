@@ -7,7 +7,7 @@ const SingleAdvertise = (props) => {
 		car_name,
 		price: { resale_price },
 		used_for
-	} = props.product;
+	} = props.add.product;
 	return (
 		<>
 			{/* Single Advertise Container */}
@@ -20,7 +20,9 @@ const SingleAdvertise = (props) => {
 					<div className='relative flex flex-col justify-between'>
 						{/* ::Starting Price */}
 						<div className='py-10 pr-10 flex justify-end'>
-							<span className='py-2 px-5 shadow rounded-sm rounded-tl-3xl rounded-br-3xl bg-lime-400 text-sm sm:text-base lg:text-lg text-white font-semibold uppercase tracking-widest'>$ {resale_price}</span>
+							<span className='py-2 px-5 shadow rounded-sm rounded-tl-3xl rounded-br-3xl bg-gradient-to-r from-red-800 to-red-600 text-sm sm:text-base lg:text-lg text-white font-semibold uppercase tracking-widest'>
+								$ {resale_price}
+							</span>
 						</div>
 						{/* ::Title */}
 						<div className='pb-10 pl-10'>

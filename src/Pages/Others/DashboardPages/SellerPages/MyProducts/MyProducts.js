@@ -45,13 +45,16 @@ const MyProducts = () => {
 
 	const handlerOnAdvertiseProduct = async (product) => {
 		// console.log('Advertise', product);
+		const productData = {
+			product: product
+		};
 		const res = await fetch('http://localhost:5000/advertise', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 				authorization: `Bearer ${localStorage.getItem('jwtToken')}`
 			},
-			body: JSON.stringify(product)
+			body: JSON.stringify(productData)
 		});
 		const data = await res.json();
 		console.log(data);
@@ -60,6 +63,7 @@ const MyProducts = () => {
 			refetch();
 		} else {
 			toast.error('Product already added for advertise');
+			refetch();
 		}
 	};
 	return (
@@ -67,6 +71,8 @@ const MyProducts = () => {
 			{/* My Products Container */}
 			<div className='my-products-container'>
 				<div className=''>
+					<h2 className='font-semibold text-3xl text-gray-600 underline underline-offset-2 mb-12 mt-2 text-center'>MY ADDED PRODUCTS</h2>
+
 					<div className='overflow-x-auto relative shadow-lg sm:rounded-lg'>
 						<table className='w-full text-sm text-left text-gray-500 bg-white'>
 							<thead className='text-xs text-gray-700 uppercase bg-gray-200 '>

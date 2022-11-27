@@ -45,6 +45,7 @@ const AllBuyers = () => {
 			{/* All Buyers Container */}
 			<div className='all-buyers-container'>
 				<div className=''>
+					<h2 className='font-semibold text-3xl text-gray-600 underline underline-offset-2 mb-12 mt-2 text-center '>All BUYERS</h2>
 					<div className='overflow-x-auto relative shadow-lg sm:rounded-lg'>
 						<table className='w-full text-sm text-left text-gray-500 bg-white'>
 							<thead className='text-xs text-gray-700 uppercase bg-gray-200 '>

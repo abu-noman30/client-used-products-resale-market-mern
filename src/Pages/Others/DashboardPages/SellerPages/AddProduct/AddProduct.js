@@ -118,8 +118,8 @@ const AddProduct = () => {
 				<div className='min-h-screen p-4 md:p-6 bg-gray-100 flex items-center justify-center'>
 					<div className='container max-w-screen-xl mx-auto'>
 						<div>
-							<h2 className='font-semibold text-xl text-gray-600'>Product Details Adding Form</h2>
-							<p className='text-gray-500 mb-6'>Fill the form below to add a new </p>
+							<h2 className='font-semibold text-3xl text-gray-600 underline underline-offset-2 mb-3'>Product Details Adding Form</h2>
+							<p className='text-gray-500 mb-6'>Fill the form below to add a new Product</p>
 
 							<div className='bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6'>
 								<form
@@ -167,7 +167,32 @@ const AddProduct = () => {
 												</div>
 											</div>
 
-											<div className='md:col-span-5 flex gap-4 mt-2 '>
+											<div className='md:col-span-5 hidden md:flex  gap-4 mt-2 '>
+												<div className='w-full '>
+													<label>Car Condition</label>
+													<select name='condition' className='w-full rounded mt-1' defaultValue='Excellent' required>
+														<option value='Excellent'>Excellent</option>
+														<option value='Good'>Good</option>
+														<option value='Fair'>Fair</option>
+													</select>
+												</div>
+												<div className='w-full'>
+													<label>Brand Name</label>
+													<select name='brand' className='w-full rounded mt-1' required>
+														{brands.map((brand) => (
+															<option key={brand._id} value={brand?.brand_name}>
+																{brand?.brand_name}
+															</option>
+														))}
+													</select>
+												</div>
+												<div className='w-full'>
+													<label>Year of Purchase</label>
+													<input type='number' name='purchaseYear' className='h-10 border mt-1 rounded px-4 w-full bg-gray-50' placeholder='Year of Purchase' required />
+												</div>
+											</div>
+
+											<div className='md:col-span-5 flex-col  gap-4 mt-2 md:hidden flex '>
 												<div className='w-full '>
 													<label>Car Condition</label>
 													<select name='condition' className='w-full rounded mt-1' defaultValue='Excellent' required>
