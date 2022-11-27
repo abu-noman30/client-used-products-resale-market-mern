@@ -5,7 +5,7 @@ const DashboardNav = () => {
 	return (
 		<>
 			{/* Navbar Container */}
-			<div className='navbar-container w-11/12 mx-auto'>
+			<div className='navbar-container w-11/12 mx-auto '>
 				<div className='py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-4'>
 					<div className='relative flex items-center justify-between z-2'>
 						<ul className='hidden items-center space-x-8 lg:flex'>

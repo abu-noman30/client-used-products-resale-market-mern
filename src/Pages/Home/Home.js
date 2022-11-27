@@ -1,5 +1,6 @@
 import React from 'react';
 import Testimonial from '../../Components/Testimonial/Testimonial';
+import TrustBrands from '../../Components/TrustBrands/TrustBrands';
 import Advertise from '../../Shared/Advertise/Advertise';
 import CarCatagory from '../../Shared/CarCatagory/CarCatagory';
 import Header from '../../Shared/Header/Header';
@@ -20,6 +21,10 @@ const Home = () => {
 				</section>
 				{/* Secure Transation Section */}
 				<section className='secure-transation-section'>{/* <SecureTransation /> */}</section>
+				{/* Trusted Brands */}
+				<section className='trusted-brands'>
+					<TrustBrands />
+				</section>
 				{/* Advertise Section */}
 				<section className='advertise-section'>
 					<Advertise />

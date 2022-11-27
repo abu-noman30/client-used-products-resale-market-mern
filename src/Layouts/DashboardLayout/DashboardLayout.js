@@ -4,6 +4,7 @@ import { Link, NavLink, Outlet } from 'react-router-dom';
 import DashboardNav from '../../Components/Other/DashboardNav/DashboardNav';
 import { FbaseAuthContext } from '../../Context/AuthContextAPI';
 import useRole from '../../Hooks/UserRoleCheck/userRole';
+import Footer from '../Footer/Footer';
 
 const DashboardLayout = () => {
 	const { currentUser, methodSignOut } = useContext(FbaseAuthContext);
@@ -28,8 +29,8 @@ const DashboardLayout = () => {
 					<input id='dashboard-drawer' type='checkbox' className='drawer-toggle' />
 					{/* <!-- Page content here --> */}
 					<div className='drawer-content bg-white'>
-						<div className='bg-white w-full shadow-lg  px-2'>
-							<div className='flex items-center justify-center ml:0 lg:ml-96 '>
+						<div className='bg-red-100 w-full shadow-lg  px-2 '>
+							<div className='flex items-center justify-center ml:0 lg:ml-96  '>
 								<DashboardNav />
 							</div>
 							<div className='flex items-center justify-end -mt-3 pb-3'>
@@ -248,7 +249,10 @@ const DashboardLayout = () => {
 					</div>
 				</div>
 			</section>
-			;
+			{/* Footer Section */}
+			<div className='footer-section'>
+				<Footer />
+			</div>
 		</>
 	);
 };

@@ -20,7 +20,7 @@ const Navbar = () => {
 	return (
 		<>
 			{/* Navbar Container */}
-			<div className='navbar-container w-11/12 mx-auto'>
+			<div className='navbar-container w-full lg:w-11/12  mx-auto py-2'>
 				<div className='py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-4'>
 					<div className='relative flex items-center justify-between z-2'>
 						<NavLink to='/' aria-label='carBazar' title='carBazar' className='inline-flex items-center'>
@@ -30,12 +30,12 @@ const Navbar = () => {
 							<span className='ml-2 text-xl lg:text-3xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-red-800 to-red-500 '>CarBazar</span>
 						</NavLink>
 						<ul className='hidden items-center space-x-8 lg:flex'>
-							<li>
+							<li className='border-2 border-red-800 rounded-lg'>
 								<NavLink
 									to='/home'
 									aria-label='Home'
 									title='Home'
-									className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+									className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400 '
 									style={({ isActive }) => ({
 										color: isActive ? '#CD0000' : ''
 									})}
@@ -43,7 +43,7 @@ const Navbar = () => {
 									<span className='flex items-center justify-start text-xl hover:bg-slate-100 rounded-lg p-2 '>Home</span>
 								</NavLink>
 							</li>
-							<li>
+							<li className='border-2 border-red-800 rounded-lg'>
 								<NavLink
 									to='/dashboard'
 									aria-label='Dashboard'
@@ -56,7 +56,7 @@ const Navbar = () => {
 									<span className=' flex items-center justify-start text-xl hover:bg-slate-100 rounded-lg p-2'>Dashboard</span>
 								</NavLink>
 							</li>
-							<li>
+							<li className='border-2 border-red-800 rounded-lg'>
 								<NavLink
 									to='/blog'
 									aria-label='Blog'
