@@ -7,10 +7,8 @@ const Testimonial = () => {
 			<div className='testimonial-container w-11/12 mx-auto mb-20'>
 				{/* Testimonial Heading */}
 				<div className='testimonial-heading text-center my-20'>
-					<h1 className='flex flex-col justify-center items-center bg-cover bg-clip-text text-black bg-center  text-transparent text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-wide antialiased underline underline-offset-4'>
-						Our Clients Say About us
-					</h1>
-					<blockquote class='text-sm italic font-semibold text-gray-400 dark:text-white mt-2'>
+					<h1 className='flex flex-col justify-center items-center bg-cover text-black bg-center text-2xl md:text-4xl lg:text-5xl font-extrabold underline underline-offset-4'>Our Clients Say About us</h1>
+					<blockquote className='text-sm italic font-semibold text-gray-400 dark:text-white mt-2'>
 						<p>" Read testimonials and see what our clients have to say about us. We are proud to have worked with everyone "</p>
 					</blockquote>
 				</div>

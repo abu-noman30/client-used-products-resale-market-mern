@@ -14,7 +14,7 @@ const AddProduct = () => {
 	const { data: brands = [], isLoading } = useQuery({
 		queryKey: [],
 		queryFn: async () => {
-			const res = await fetch('http://localhost:5000/category');
+			const res = await fetch('https://server-used-car-bazar-mern.vercel.app/category');
 			const data = await res.json();
 			return data;
 		}
@@ -23,7 +23,7 @@ const AddProduct = () => {
 	if (isLoading) {
 		return <Spinner />;
 	}
-	fetch(`http://localhost:5000/users/verified?email=${currentUser.email}`)
+	fetch(`https://server-used-car-bazar-mern.vercel.app/users/verified?email=${currentUser.email}`)
 		.then((response) => response.json())
 		.then((data) => {
 			console.log(data);
@@ -96,7 +96,7 @@ const AddProduct = () => {
 
 	const handlerOnAddProduct = async (productData) => {
 		try {
-			const res = await fetch('http://localhost:5000/add-product', {
+			const res = await fetch('https://server-used-car-bazar-mern.vercel.app/add-product', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

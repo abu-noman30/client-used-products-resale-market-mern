@@ -15,7 +15,7 @@ const ConfirmModal = (props) => {
 				email: currentUser.email
 			}
 		};
-		const res = await fetch('http://localhost:5000/reported-items', {
+		const res = await fetch('https://server-used-car-bazar-mern.vercel.app/reported-items', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

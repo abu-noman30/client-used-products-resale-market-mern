@@ -68,7 +68,7 @@ const Register = () => {
 			verification: 'pending'
 		};
 		try {
-			const res = await fetch('http://localhost:5000/users', {
+			const res = await fetch('https://server-used-car-bazar-mern.vercel.app/users', {
 				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json'
@@ -157,7 +157,7 @@ const Register = () => {
 	// Middleware(Authentication)-JWT(Token)
 
 	const fetchJWT = async (authoriseUser) => {
-		const res = await fetch('http://localhost:5000/jwt', {
+		const res = await fetch('https://server-used-car-bazar-mern.vercel.app/jwt', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

@@ -10,7 +10,7 @@ const Advertise = () => {
 
 	useEffect(() => {
 		const fetchAPI = async () => {
-			const res = await axios.get('http://localhost:5000/advertise', {
+			const res = await axios.get('https://server-used-car-bazar-mern.vercel.app/advertise', {
 				method: 'GET',
 				headers: {
 					authorization: `Bearer ${localStorage.getItem('jwtToken')}`

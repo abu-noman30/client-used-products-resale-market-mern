@@ -16,7 +16,7 @@ const MyProducts = () => {
 	} = useQuery({
 		queryKey: [],
 		queryFn: async () => {
-			const res = await fetch(`http://localhost:5000/products?email=${currentUser.email}`, {
+			const res = await fetch(`https://server-used-car-bazar-mern.vercel.app/products?email=${currentUser.email}`, {
 				method: 'GET',
 				headers: {
 					authorization: `Bearer ${localStorage.getItem('jwtToken')}`
@@ -34,7 +34,7 @@ const MyProducts = () => {
 	const handlerOnConfirmModal = async (id) => {
 		console.log('Confirm', id);
 		try {
-			const res = await fetch(`http://localhost:5000/products/${id}`, {
+			const res = await fetch(`https://server-used-car-bazar-mern.vercel.app/products/${id}`, {
 				method: 'DELETE',
 				headers: {
 					'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ const MyProducts = () => {
 		const productData = {
 			product: product
 		};
-		const res = await fetch('http://localhost:5000/advertise', {
+		const res = await fetch('https://server-used-car-bazar-mern.vercel.app/advertise', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

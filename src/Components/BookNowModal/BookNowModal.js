@@ -43,7 +43,7 @@ const BookNowModal = (props) => {
 	};
 
 	const storeDookingDataToDatabase = async (bookingData) => {
-		const res = await fetch('http://localhost:5000/booking', {
+		const res = await fetch('https://server-used-car-bazar-mern.vercel.app/booking', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

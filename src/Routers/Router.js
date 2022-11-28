@@ -38,7 +38,7 @@ const router = createBrowserRouter([
 					</PrivateRouter>
 				),
 				loader: async ({ params }) => {
-					return await fetch(`http://localhost:5000/category/${params.id}`);
+					return await fetch(`https://server-used-car-bazar-mern.vercel.app/category/${params.id}`);
 				}
 			},
 			{
@@ -83,7 +83,7 @@ const router = createBrowserRouter([
 				path: 'my-orders/payment/:id',
 				element: <Payment />,
 				loader: async ({ params }) => {
-					return await fetch(`http://localhost:5000/booking/${params.id}`);
+					return await fetch(`https://server-used-car-bazar-mern.vercel.app/booking/${params.id}`);
 				}
 			},
 			{
