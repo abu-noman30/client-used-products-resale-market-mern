@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# CarBazar (MERN-APP)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Live Website: https://carbazar-mern.web.app/
+2. Server Side: https://server-used-car-bazar-mern.vercel.app/
 
-## Available Scripts
+##### Admin(Email & Password):
+1. adminEmail: admin@gmail.com
+2. adminPassword: Ad123456@
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Description:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. A web base application (MERN Stack).
+2. At "Home" page user find "Brands Catagories". and on individual Brands they will find the used cares collection based on that brand.
+3. User Can view the details of the cars and if user want, user can add the car to their order list for booking. 
+4. There is also a "Report Item" button for report for the Item to Admin at Car's details Card.
+5. If user is Loged in, user can See Dashboard Button on the Navbar. 
+6. Dashboard will change for different Users(Admin, Seller, Buyer)
+7. Buyers can see the orders list which he/she added.By Clearing Payment Processing Complete.Buyers can purchase the Car. Also, they can remove items from their list.
+8. Sellers can add their Product and View their added products. also seller and add the product for advertisement. 
+9. Admin can manage All Sellers and All Buyers also the can take action on Repoted Items(delete the product)
+10. System is Fully Authenticate By "Google Firebase Authentication" and uses JWTToken for user Authorization.
+11. There are also "Blog" page. From there user can find Questions and Answers.
+12. System is fully responsive.
+13. All Data's are hosted on the database "MongoDB" and server side hosted on "vercel".
+#
 
-### `npm test`
+## Technology Uses (Frameworks, libraries):
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##### Frameworks:
+1. Tailwind CSS.
+2. react-router-dom
 
-### `npm run build`
+##### Libraries:
+1. React JS
+2. Daisy UI
+3. Flowbite
+4. react-hot-toast
+5. react-icons
+6. react-spinners
+7. aos
+9. JwtToken
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#
+## Deploy:
+1. Vercel (Server Side)
+2. Firebase (Client Side)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#
+## Database:
+1. MongoDB(NoSQL)
+#
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
