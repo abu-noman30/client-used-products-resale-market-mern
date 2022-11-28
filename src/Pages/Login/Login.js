@@ -32,7 +32,11 @@ const Login = () => {
 				setLoading(false);
 				console.log(user);
 				// ...
-
+				const authoriseUser = {
+					email: user.email,
+					uid: user.uid
+				};
+				fetchJWT(authoriseUser);
 				// ...
 				if (user && user.uid) {
 					if (from === '/' || from === '/home') {
@@ -68,7 +72,11 @@ const Login = () => {
 				console.log(user);
 				// ...
 				// ...
-
+				const authoriseUser = {
+					email: user.email,
+					uid: user.uid
+				};
+				fetchJWT(authoriseUser);
 				// ...
 				if (user && user.uid && user.displayName && user.email) {
 					if (from === '/' || from === '/home') {
@@ -123,6 +131,26 @@ const Login = () => {
 			console.log(data);
 		} catch (error) {
 			console.log(error);
+		}
+	};
+
+	// Middleware(Authentication)-JWT(Token)
+
+	const fetchJWT = async (authoriseUser) => {
+		const res = await fetch('http://localhost:5000/jwt', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(authoriseUser)
+		});
+		const data = await res.json();
+		console.log(data);
+
+		localStorage.setItem('jwtToken', data.accessToken);
+		try {
+		} catch (error) {
+			console.error(error);
 		}
 	};
 	return (

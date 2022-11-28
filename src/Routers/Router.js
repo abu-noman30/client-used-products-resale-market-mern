@@ -14,6 +14,7 @@ import Payment from '../Pages/Others/DashboardPages/BuyerPages/Payment/Payment';
 import AddProduct from '../Pages/Others/DashboardPages/SellerPages/AddProduct/AddProduct';
 import MyProducts from '../Pages/Others/DashboardPages/SellerPages/MyProducts/MyProducts';
 import Register from '../Pages/Register/Register';
+import PrivateRouter from './Private/PrivateRouter';
 
 const router = createBrowserRouter([
 	{
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
 			},
 			{
 				path: 'category/:id',
-				element: <AvailableCars />,
+				element: (
+					<PrivateRouter>
+						<AvailableCars />
+					</PrivateRouter>
+				),
 				loader: async ({ params }) => {
 					return await fetch(`http://localhost:5000/category/${params.id}`);
 				}

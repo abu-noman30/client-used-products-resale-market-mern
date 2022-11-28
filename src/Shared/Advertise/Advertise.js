@@ -10,7 +10,12 @@ const Advertise = () => {
 
 	useEffect(() => {
 		const fetchAPI = async () => {
-			const res = await axios.get('http://localhost:5000/advertise');
+			const res = await axios.get('http://localhost:5000/advertise', {
+				method: 'GET',
+				headers: {
+					authorization: `Bearer ${localStorage.getItem('jwtToken')}`
+				}
+			});
 			setAdvertiseData(res.data);
 			console.log(res.data);
 		};

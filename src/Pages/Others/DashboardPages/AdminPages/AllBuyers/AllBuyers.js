@@ -14,7 +14,12 @@ const AllBuyers = () => {
 	} = useQuery({
 		queryKey: [],
 		queryFn: async () => {
-			const res = await fetch('http://localhost:5000/users');
+			const res = await fetch('http://localhost:5000/users', {
+				method: 'GET',
+				headers: {
+					authorization: `Bearer ${localStorage.getItem('jwtToken')}`
+				}
+			});
 			const data = await res.json();
 			return data.buyersData;
 		}

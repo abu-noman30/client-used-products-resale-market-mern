@@ -48,19 +48,22 @@ const Navbar = () => {
 									<span className='flex items-center justify-start text-xl hover:bg-slate-100 rounded-lg p-2 '>Home</span>
 								</NavLink>
 							</li>
-							<li className='border-2 border-red-800 rounded-lg'>
-								<NavLink
-									to='/dashboard'
-									aria-label='Dashboard'
-									title='Dashboard'
-									className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-									style={({ isActive }) => ({
-										color: isActive ? '#CD0000' : ''
-									})}
-								>
-									<span className=' flex items-center justify-start text-xl hover:bg-slate-100 rounded-lg p-2'>Dashboard</span>
-								</NavLink>
-							</li>
+
+							{currentUser && currentUser.uid && (
+								<li className='border-2 border-red-800 rounded-lg'>
+									<NavLink
+										to='/dashboard'
+										aria-label='Dashboard'
+										title='Dashboard'
+										className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+										style={({ isActive }) => ({
+											color: isActive ? '#CD0000' : ''
+										})}
+									>
+										<span className=' flex items-center justify-start text-xl hover:bg-slate-100 rounded-lg p-2'>Dashboard</span>
+									</NavLink>
+								</li>
+							)}
 							<li className='border-2 border-red-800 rounded-lg'>
 								<NavLink
 									to='/blog'
@@ -162,19 +165,21 @@ const Navbar = () => {
 														<span className='flex items-center justify-start'>Home</span>
 													</NavLink>
 												</li>
-												<li>
-													<NavLink
-														to='/dashboard'
-														aria-label='Dashboard'
-														title='Dashboard'
-														className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-														style={({ isActive }) => ({
-															color: isActive ? '#CD0000' : ''
-														})}
-													>
-														<span className='flex items-center justify-start'>Dashboard</span>
-													</NavLink>
-												</li>
+												{currentUser && currentUser.uid && (
+													<li>
+														<NavLink
+															to='/dashboard'
+															aria-label='Dashboard'
+															title='Dashboard'
+															className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+															style={({ isActive }) => ({
+																color: isActive ? '#CD0000' : ''
+															})}
+														>
+															<span className='flex items-center justify-start'>Dashboard</span>
+														</NavLink>
+													</li>
+												)}
 												<li>
 													<NavLink
 														to='/blog'

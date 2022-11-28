@@ -171,32 +171,7 @@ const AddProduct = () => {
 												</div>
 											</div>
 
-											<div className='md:col-span-5 hidden md:flex  gap-4 mt-2 '>
-												<div className='w-full '>
-													<label>Car Condition</label>
-													<select name='condition' className='w-full rounded mt-1' defaultValue='Excellent' required>
-														<option value='Excellent'>Excellent</option>
-														<option value='Good'>Good</option>
-														<option value='Fair'>Fair</option>
-													</select>
-												</div>
-												<div className='w-full'>
-													<label>Brand Name</label>
-													<select name='brand' className='w-full rounded mt-1' required>
-														{brands.map((brand) => (
-															<option key={brand._id} value={brand?.brand_name}>
-																{brand?.brand_name}
-															</option>
-														))}
-													</select>
-												</div>
-												<div className='w-full'>
-													<label>Year of Purchase</label>
-													<input type='number' name='purchaseYear' className='h-10 border mt-1 rounded px-4 w-full bg-gray-50' placeholder='Year of Purchase' required />
-												</div>
-											</div>
-
-											<div className='md:col-span-5 flex-col  gap-4 mt-2 md:hidden flex '>
+											<div className='md:col-span-5  md:flex  gap-4 mt-2 '>
 												<div className='w-full '>
 													<label>Car Condition</label>
 													<select name='condition' className='w-full rounded mt-1' defaultValue='Excellent' required>

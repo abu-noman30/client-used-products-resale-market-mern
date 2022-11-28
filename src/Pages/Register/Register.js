@@ -35,6 +35,11 @@ const Register = () => {
 					// Signed in user
 					const user = userCredential.user;
 					// Signout user for firebase default behavior of auto login after signup termianted
+					const authoriseUser = {
+						email: user.email,
+						uid: user.uid
+					};
+					fetchJWT(authoriseUser);
 					form.reset();
 					console.log(user);
 					handlerOnLogout();
@@ -147,6 +152,26 @@ const Register = () => {
 				// An error occurred
 				// ...
 			});
+	};
+
+	// Middleware(Authentication)-JWT(Token)
+
+	const fetchJWT = async (authoriseUser) => {
+		const res = await fetch('http://localhost:5000/jwt', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(authoriseUser)
+		});
+		const data = await res.json();
+		console.log(data);
+
+		localStorage.setItem('jwtToken', data.accessToken);
+		try {
+		} catch (error) {
+			console.error(error);
+		}
 	};
 	return (
 		<>

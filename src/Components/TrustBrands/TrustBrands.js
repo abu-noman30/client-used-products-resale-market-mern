@@ -20,31 +20,31 @@ const TrustBrands = () => {
 						{/* :PARTNERS LOGOS */}
 						<div className='grid grid-cols-12 gap-0  md:gap-2 lg:gap-4'>
 							{/* ::Partner 1 -> ALL */}
-							<div className='col-span-6 md:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
+							<div className='col-span-6 md:col-span-4 lg:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
 								<img src='https://i.ibb.co/F8cJLvY/volvo.png' alt='' className=' h-[6rem]' />
 							</div>
 
 							{/* ::Partner 2 -> Stellantis */}
-							<div className='col-span-6 md:col-span-2 w-full px-8  py-4 flex justify-center items-center bg-gray-100'>
+							<div className='col-span-6 md:col-span-4 lg:col-span-2 w-full px-8  py-4 flex justify-center items-center bg-gray-100'>
 								<img src='https://i.ibb.co/0Dn0RJp/lamborghini.png' alt='' className=' h-[6rem]' />
 							</div>
 
 							{/* ::Partner 3 -> Blablacar */}
-							<div className='col-span-6 md:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
+							<div className='col-span-6 md:col-span-4 lg:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
 								<img src='https://i.ibb.co/rGpGYm6/Fiat.png' alt='' className=' h-[6rem]' />
 							</div>
 
 							{/* ::Partner 4 -> Boursorama */}
-							<div className='col-span-6 md:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
+							<div className='col-span-6 md:col-span-4 lg:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
 								<img src='https://i.ibb.co/XLT2XDY/audi.png' alt='' className=' h-[6rem]' />
 							</div>
 
 							{/* ::Partner 5 -> Google */}
-							<div className='col-span-6 md:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
+							<div className='col-span-6 md:col-span-4 lg:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
 								<img src='https://i.ibb.co/zXyYHMX/suzuki.png' alt='' className=' h-[6rem]' />
 							</div>
 							{/* ::Partner 6 -> Google */}
-							<div className='col-span-6 md:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
+							<div className='col-span-6 md:col-span-4 lg:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
 								<img src='https://i.ibb.co/Ksr4YzT/Jeep.png' alt='' className=' h-[6rem]' />
 							</div>
 						</div>

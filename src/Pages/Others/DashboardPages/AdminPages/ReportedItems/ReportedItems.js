@@ -15,7 +15,12 @@ const ReportedItems = () => {
 	} = useQuery({
 		queryKey: [],
 		queryFn: async () => {
-			const res = await fetch('http://localhost:5000/reported-items');
+			const res = await fetch('http://localhost:5000/reported-items', {
+				method: 'GET',
+				headers: {
+					authorization: `Bearer ${localStorage.getItem('jwtToken')}`
+				}
+			});
 			const data = await res.json();
 			return data;
 		}
