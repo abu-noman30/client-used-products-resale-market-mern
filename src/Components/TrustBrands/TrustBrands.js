@@ -4,42 +4,50 @@ const TrustBrands = () => {
 	return (
 		<>
 			{/* Trusted Brands Container */}
-			<div className='trusted-brands-container'>
-				<div className='mx-auto py-10 px-4 w-full max-w-7xl bg-white text-gray-800'>
+			<div className='trusted-brands-container w-11/12 mx-auto'>
+				<div className='mx-auto py-10  max-w-7xl bg-white text-gray-800'>
 					<div className='flex flex-col items-center space-y-12'>
 						{/* :TITLE CONTAINER */}
 						<div className='mx-auto max-w-2xl space-y-3 text-center'>
 							{/* ::Title */}
-							<h2 className='text-3xl sm:text-4xl font-bold tracking-wide'>Popular Brands</h2>
+							<h2 className='text-3xl sm:text-4xl font-bold tracking-wide underline underline-offset-4'>Popular Brands</h2>
 							{/* ::Text */}
-							<blockquote class='text-sm italic font-semibold text-gray-400 dark:text-white mt-2'>
-								<p>" We have partnered with the best brands in the world to bring you the best products at the best prices. "</p>
+							<blockquote class='text-sm italic font-semibold text-gray-400 dark:text-white mt-2 text-start'>
+								<p>"We have a wide range of products from the most popular brands in the world."</p>
 							</blockquote>
 						</div>
 
 						{/* :PARTNERS LOGOS */}
-						<section class='px-4 py-5 mx-auto max-w-7xl'>
-							<div class='grid grid-cols-2 gap-2 text-center lg:grid-cols-12'>
-								<div class='flex items-center justify-center p-6 bg-opacity-25 bg-primary-light col-span-2'>
-									<img src='https://i.ibb.co/ZB9HNxB/error.png' alt='Todoist Logo' class='block object-contain h-16' />
-								</div>
-								<div class='flex items-center justify-center p-6 bg-opacity-25 bg-primary-light'>
-									<img src='https://i.ibb.co/ZB9HNxB/error.png' alt='Slack Logo' class='block object-contain h-16' />
-								</div>
-								<div class='flex items-center justify-center p-6 bg-opacity-25 bg-primary-light'>
-									<img src='https://i.ibb.co/ZB9HNxB/error.png' alt='Typeform Logo' class='block object-contain h-16' />
-								</div>
-								<div class='flex items-center justify-center p-6 bg-opacity-25 bg-primary-light'>
-									<img src='https://i.ibb.co/ZB9HNxB/error.png' alt='Postcss Logo' class='block object-contain h-16' />
-								</div>
-								<div class='flex items-center justify-center p-6 bg-opacity-25 bg-primary-light'>
-									<img src='https://i.ibb.co/ZB9HNxB/error.png' alt='Yahoo Logo' class='block object-contain h-16' />
-								</div>
-								<div class='flex items-center justify-center p-6 bg-opacity-25 bg-primary-light'>
-									<img src='https://i.ibb.co/ZB9HNxB/error.png' alt='Algolia Logo' class='block object-contain h-16' />
-								</div>
+						<div className='grid grid-cols-12 gap-0  md:gap-2 lg:gap-4'>
+							{/* ::Partner 1 -> ALL */}
+							<div className='col-span-6 md:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
+								<img src='https://i.ibb.co/F8cJLvY/volvo.png' alt='' className=' h-[6rem]' />
 							</div>
-						</section>
+
+							{/* ::Partner 2 -> Stellantis */}
+							<div className='col-span-6 md:col-span-2 w-full px-8  py-4 flex justify-center items-center bg-gray-100'>
+								<img src='https://i.ibb.co/0Dn0RJp/lamborghini.png' alt='' className=' h-[6rem]' />
+							</div>
+
+							{/* ::Partner 3 -> Blablacar */}
+							<div className='col-span-6 md:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
+								<img src='https://i.ibb.co/rGpGYm6/Fiat.png' alt='' className=' h-[6rem]' />
+							</div>
+
+							{/* ::Partner 4 -> Boursorama */}
+							<div className='col-span-6 md:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
+								<img src='https://i.ibb.co/XLT2XDY/audi.png' alt='' className=' h-[6rem]' />
+							</div>
+
+							{/* ::Partner 5 -> Google */}
+							<div className='col-span-6 md:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
+								<img src='https://i.ibb.co/zXyYHMX/suzuki.png' alt='' className=' h-[6rem]' />
+							</div>
+							{/* ::Partner 6 -> Google */}
+							<div className='col-span-6 md:col-span-2 w-full px-8 py-4 flex justify-center items-center bg-gray-100'>
+								<img src='https://i.ibb.co/Ksr4YzT/Jeep.png' alt='' className=' h-[6rem]' />
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

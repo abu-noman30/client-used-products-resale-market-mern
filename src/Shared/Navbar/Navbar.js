@@ -25,7 +25,7 @@ const Navbar = () => {
 	return (
 		<>
 			{/* Navbar Container */}
-			<div className='navbar-container w-full lg:w-11/12  mx-auto py-2'>
+			<div className='navbar-container w-11/12  mx-auto py-2'>
 				<div className='py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-4'>
 					<div className='relative flex items-center justify-between z-2'>
 						<NavLink to='/' aria-label='carBazar' title='carBazar' className='inline-flex items-center'>
