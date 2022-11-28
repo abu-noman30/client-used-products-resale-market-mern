@@ -1,10 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Spinner from '../../Components/Other/Spinner/Spinner';
 import { FbaseAuthContext } from '../../Context/AuthContextAPI';
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const { currentUser, methodSignOut } = useContext(FbaseAuthContext);
+	const { loading, currentUser, methodSignOut } = useContext(FbaseAuthContext);
+
+	if (loading) {
+		return <Spinner />;
+	}
 
 	// User logout
 	const handlerOnLogout = () => {

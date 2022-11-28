@@ -2,13 +2,21 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import * as FAIcons from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
+import Spinner from '../../Components/Other/Spinner/Spinner';
 import { FbaseAuthContext } from '../../Context/AuthContextAPI';
 
 const Register = () => {
-	const { methodCreateUser, methodUpdateProfile, methodSignOut } = useContext(FbaseAuthContext);
+	const { loading, setLoading, methodCreateUser, methodUpdateProfile, methodSignOut } = useContext(FbaseAuthContext);
 	const [error, setError] = useState('');
 
 	const navigate = useNavigate();
+
+	if (loading) {
+		return (
+			// Spinner component
+			<Spinner />
+		);
+	}
 
 	const handlerOnSubmit = (e) => {
 		e.preventDefault();
@@ -40,6 +48,7 @@ const Register = () => {
 				.catch((error) => {
 					const errorMessage = error.message;
 					setError(errorMessage);
+					setLoading(false);
 					console.error(error);
 					// ..
 				});
@@ -128,8 +137,8 @@ const Register = () => {
 	};
 
 	//  for updating the user profile
-	const handlerUpdateProfile = (fullname, photourl) => {
-		methodUpdateProfile(fullname, photourl)
+	const handlerUpdateProfile = (fullname) => {
+		methodUpdateProfile(fullname)
 			.then(() => {
 				// Update successful
 				// ...

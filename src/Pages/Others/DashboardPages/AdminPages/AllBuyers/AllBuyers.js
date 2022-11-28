@@ -2,11 +2,16 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import DeleteModal from '../../../../../Components/Other/DeleteModal/DeleteModal';
+import Spinner from '../../../../../Components/Other/Spinner/Spinner';
 
 const AllBuyers = () => {
 	const [modalData, setModalData] = useState({});
 
-	const { data: buyers = [], refetch } = useQuery({
+	const {
+		data: buyers = [],
+		isLoading,
+		refetch
+	} = useQuery({
 		queryKey: [],
 		queryFn: async () => {
 			const res = await fetch('http://localhost:5000/users');
@@ -14,7 +19,10 @@ const AllBuyers = () => {
 			return data.buyersData;
 		}
 	});
-	console.log(buyers);
+	// console.log(buyers);
+	if (isLoading) {
+		return <Spinner />;
+	}
 
 	const handlerOnConfirmModal = async (id) => {
 		// console.log('Confirm', id);

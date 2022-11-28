@@ -2,13 +2,18 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import DeleteModal from '../../../../../Components/Other/DeleteModal/DeleteModal';
+import Spinner from '../../../../../Components/Other/Spinner/Spinner';
 import { FbaseAuthContext } from '../../../../../Context/AuthContextAPI';
 
 const MyProducts = () => {
-	const { currentUser } = useContext(FbaseAuthContext);
+	const { loading, currentUser } = useContext(FbaseAuthContext);
 	const [modalData, setModalData] = useState({});
 
-	const { data: products = [], refetch } = useQuery({
+	const {
+		data: products = [],
+		isLoading,
+		refetch
+	} = useQuery({
 		queryKey: [],
 		queryFn: async () => {
 			const res = await fetch(`http://localhost:5000/products?email=${currentUser.email}`);
@@ -16,7 +21,10 @@ const MyProducts = () => {
 			return data;
 		}
 	});
-	console.log(products);
+	// console.log(products);
+	if (isLoading && loading) {
+		return <Spinner />;
+	}
 
 	const handlerOnConfirmModal = async (id) => {
 		console.log('Confirm', id);

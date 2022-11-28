@@ -1,9 +1,12 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import SkeletonLoader from '../../Components/Other/SkeletonLoader/SkeletonLoader';
 import SingleAdvertise from '../../Components/SingleAdvertise/SingleAdvertise';
+import { FbaseAuthContext } from '../../Context/AuthContextAPI';
 
 const Advertise = () => {
 	const [advertiseData, setAdvertiseData] = useState([]);
+	const { loading } = useContext(FbaseAuthContext);
 
 	useEffect(() => {
 		const fetchAPI = async () => {
@@ -14,7 +17,7 @@ const Advertise = () => {
 		fetchAPI();
 	}, []);
 
-	console.log(advertiseData);
+	// console.log(advertiseData);
 	return (
 		<>
 			{/* Advertise Container */}
@@ -32,11 +35,15 @@ const Advertise = () => {
 								</div>
 
 								{/* :PRODUCT SUGGESTION */}
-								<div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-									{advertiseData.map((add) => (
-										<SingleAdvertise key={add.product._id} add={add} />
-									))}
-								</div>
+								{loading ? (
+									<SkeletonLoader />
+								) : (
+									<div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+										{advertiseData.map((add) => (
+											<SingleAdvertise key={add.product._id} add={add} />
+										))}
+									</div>
+								)}
 							</div>
 						</div>
 					</div>

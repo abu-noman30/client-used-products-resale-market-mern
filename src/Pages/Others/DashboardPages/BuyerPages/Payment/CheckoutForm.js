@@ -10,7 +10,7 @@ const CheckoutForm = (props) => {
 		carInfo: { price }
 	} = orderData;
 
-	console.log(orderData);
+	// console.log(orderData);
 	const [cardError, setCardError] = useState('');
 
 	const [paymentSuccess, setPaymentSuccess] = useState('');
@@ -123,8 +123,8 @@ const CheckoutForm = (props) => {
 		<>
 			{/* CheckoutForm Container */}
 			<div className='checkout-form-container flex justify-center'>
-				<div className=' w-full md:w-8/12 lg:w-4/12 bg-gray-200 p-6 rounded-lg border border-blue-600'>
-					<h1 className='relative text-2xl sm:text-3xl text-gray-700 font-medium mb-5'>
+				<div className=' w-full md:w-8/12 lg:w-4/12 bg-gray-300 px-4 py-4 md:py-6 lg:py-8 rounded-lg border border-blue-600 shadow-lg '>
+					<h1 className='relative text-2xl md:text-3xl text-gray-700 font-medium mb-5'>
 						Secure Checkout
 						<span className='mt-2 w-10 sm:w-20 h-1 block bg-indigo-600' />
 					</h1>

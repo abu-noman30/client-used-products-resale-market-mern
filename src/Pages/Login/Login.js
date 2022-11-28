@@ -4,8 +4,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FbaseAuthContext } from '../../Context/AuthContextAPI';
 
 const Login = () => {
-	const { methodSignIn, methodGoogleSignIn, methodSignOut } = useContext(FbaseAuthContext);
+	const { setLoading, methodSignIn, methodGoogleSignIn, methodSignOut } = useContext(FbaseAuthContext);
 	const [error, setError] = useState('');
+	// const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
 	const location = useLocation();
 
@@ -28,6 +29,7 @@ const Login = () => {
 				const user = userCredential.user;
 				form.reset();
 				setError('');
+				setLoading(false);
 				console.log(user);
 				// ...
 
@@ -42,12 +44,14 @@ const Login = () => {
 					}
 				} else {
 					handlerOnLogout();
+					setLoading(false);
 				}
 			})
 
 			.catch((error) => {
 				const errorMessage = error.message;
 				setError(errorMessage);
+				setLoading(false);
 
 				console.error(error);
 				// ..

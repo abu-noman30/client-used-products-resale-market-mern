@@ -5,7 +5,7 @@ import AvailableCars from '../Pages/AvailableCars/AvailableCars';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
-import Dashboard from '../Pages/Others/DashBoard/Dashboard';
+import Dashboard from '../Pages/Others/DashBoard/DashBoard';
 import AllBuyers from '../Pages/Others/DashboardPages/AdminPages/AllBuyers/AllBuyers';
 import AllSellers from '../Pages/Others/DashboardPages/AdminPages/AllSellers/AllSellers';
 import ReportedItems from '../Pages/Others/DashboardPages/AdminPages/ReportedItems/ReportedItems';
@@ -49,7 +49,6 @@ const router = createBrowserRouter([
 	{
 		path: 'dashboard',
 		element: <DashboardLayout />,
-		errorElement: <Error />,
 		children: [
 			{
 				index: true,

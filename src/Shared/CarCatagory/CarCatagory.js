@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import SkeletonSmallLoader from '../../Components/Other/SkeletonSmallLoader/SkeletonSmallLoader';
 import SingleCarCatagory from '../../Components/SingleCarCatagory/SingleCarCatagory';
+import { FbaseAuthContext } from '../../Context/AuthContextAPI';
 
 const CarCatagory = () => {
+	const { loading } = useContext(FbaseAuthContext);
 	const [carBrands, setCarBrands] = useState([]);
+
 	useEffect(() => {
 		const fetchCarCatagory = async () => {
 			const res = await fetch('http://localhost:5000/category');
@@ -25,14 +29,18 @@ const CarCatagory = () => {
 						<p>" Choose your brand, choose your car. Select your car from the list of brands below."</p>
 					</blockquote>
 				</div>
-				<div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6'>
-					{/* Car Catagory Card */}
-					{carBrands.map((brand) => (
-						<Link to={`/category/${brand._id}`} key={brand._id}>
-							<SingleCarCatagory brand={brand} />
-						</Link>
-					))}
-				</div>
+				{loading ? (
+					<SkeletonSmallLoader />
+				) : (
+					<div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6'>
+						{/* Car Catagory Card */}
+						{carBrands.map((brand) => (
+							<Link to={`/category/${brand._id}`} key={brand._id}>
+								<SingleCarCatagory brand={brand} />
+							</Link>
+						))}
+					</div>
+				)}
 			</div>
 		</>
 	);

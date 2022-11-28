@@ -3,13 +3,18 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import DeleteModal from '../../../../../Components/Other/DeleteModal/DeleteModal';
+import Spinner from '../../../../../Components/Other/Spinner/Spinner';
 import { FbaseAuthContext } from '../../../../../Context/AuthContextAPI';
 
 const MyOrders = () => {
 	const { currentUser } = useContext(FbaseAuthContext);
 	const [modalData, setModalData] = useState({});
 
-	const { data: orders = [], refetch } = useQuery({
+	const {
+		data: orders = [],
+		isLoading,
+		refetch
+	} = useQuery({
 		queryKey: [],
 		queryFn: async () => {
 			const res = await fetch(`http://localhost:5000/booking?email=${currentUser.email}`);
@@ -17,7 +22,10 @@ const MyOrders = () => {
 			return data;
 		}
 	});
-	console.log(orders);
+	// console.log(orders);
+	if (isLoading) {
+		return <Spinner />;
+	}
 
 	const handlerOnConfirmModal = async (id) => {
 		console.log('Confirm', id);

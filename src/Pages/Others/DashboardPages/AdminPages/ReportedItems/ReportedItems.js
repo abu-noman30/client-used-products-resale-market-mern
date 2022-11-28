@@ -2,12 +2,17 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import DeleteModal from '../../../../../Components/Other/DeleteModal/DeleteModal';
+import Spinner from '../../../../../Components/Other/Spinner/Spinner';
 
 const ReportedItems = () => {
 	// const { currentUser } = useContext(FbaseAuthContext);
 	const [modalData, setModalData] = useState({});
 
-	const { data: reportedItems = [], refetch } = useQuery({
+	const {
+		data: reportedItems = [],
+		isLoading,
+		refetch
+	} = useQuery({
 		queryKey: [],
 		queryFn: async () => {
 			const res = await fetch('http://localhost:5000/reported-items');
@@ -15,7 +20,10 @@ const ReportedItems = () => {
 			return data;
 		}
 	});
-	console.log(reportedItems);
+	// console.log(reportedItems);
+	if (isLoading) {
+		return <Spinner />;
+	}
 
 	const handlerOnConfirmModal = async (id) => {
 		console.log('Confirm', id);

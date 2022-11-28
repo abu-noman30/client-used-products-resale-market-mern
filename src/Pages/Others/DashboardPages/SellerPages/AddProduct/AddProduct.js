@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import Spinner from '../../../../../Components/Other/Spinner/Spinner';
 import { FbaseAuthContext } from '../../../../../Context/AuthContextAPI';
 
 const AddProduct = () => {
@@ -10,7 +11,7 @@ const AddProduct = () => {
 	const [sellerVerification, setSellerVerification] = useState({});
 	const navigate = useNavigate();
 
-	const { data: brands = [] } = useQuery({
+	const { data: brands = [], isLoading } = useQuery({
 		queryKey: [],
 		queryFn: async () => {
 			const res = await fetch('http://localhost:5000/category');
@@ -19,6 +20,9 @@ const AddProduct = () => {
 		}
 	});
 
+	if (isLoading) {
+		return <Spinner />;
+	}
 	fetch(`http://localhost:5000/users/verified?email=${currentUser.email}`)
 		.then((response) => response.json())
 		.then((data) => {
