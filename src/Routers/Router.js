@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import DashboardLayout from '../Layouts/DashboardLayout/DashboardLayout';
 import Root from '../Layouts/Root/Root';
 import AvailableCars from '../Pages/AvailableCars/AvailableCars';
+import Blog from '../Pages/Blog/Blog';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
 			{
 				path: 'register',
 				element: <Register />
+			},
+			{
+				path: 'blog',
+				element: <Blog />
 			}
 		]
 	},

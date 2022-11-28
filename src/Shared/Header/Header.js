@@ -24,8 +24,8 @@ const Header = () => {
 								<br className='hidden md:block' />
 								For You
 							</h2>
-							<p className='pr-5 mb-5 text-base text-gray-700 md:text-lg'>
-								Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.
+							<p className='pr-5 mb-5 text-base text-gray-500 '>
+								We have a wide range of used cars for sales.We are here to help you find the perfect car for you. Our inventory is updated daily and we have a wide range of makes and models to choose from.
 							</p>
 							<div className='flex flex-col md:flex-row text-center items-start justify-start'>
 								<Link

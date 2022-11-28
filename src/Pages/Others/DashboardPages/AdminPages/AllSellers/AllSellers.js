@@ -99,7 +99,7 @@ const AllSellers = () => {
 							<tbody>
 								{sellers.map((seller, index) => (
 									<tr className='bg-white border-b hover:bg-gray-50 ' key={seller._id}>
-										<th scope='row' className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
+										<th scope='row' className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap '>
 											{index + 1}
 										</th>
 										<td className='py-4 px-6'>{seller.name}</td>

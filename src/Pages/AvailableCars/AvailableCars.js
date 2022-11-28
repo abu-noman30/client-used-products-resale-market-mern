@@ -22,7 +22,7 @@ const AvailableCars = () => {
 	return (
 		<>
 			{/* Available Cars Conainer */}
-			<div className='available-cars-container w-11/12 mx-auto'>
+			<div className='available-cars-container w-11/12 mx-auto  ' data-aos='zoom-in-up'>
 				{navigation.state === 'loading' ? (
 					<SkeletonLoader />
 				) : (

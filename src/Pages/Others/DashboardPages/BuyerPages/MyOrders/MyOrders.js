@@ -94,7 +94,7 @@ const MyOrders = () => {
 							<tbody>
 								{orders.map((order, index) => (
 									<tr className='bg-white border-b hover:bg-gray-50 ' key={order._id}>
-										<th scope='row' className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
+										<th scope='row' className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap'>
 											{index + 1}
 										</th>
 										<td className='py-1 px-1'>
@@ -105,8 +105,8 @@ const MyOrders = () => {
 											</div>
 										</td>
 										<td className='py-4 px-2'>{order?.carInfo?.carModel}</td>
-										<td className='py-4 px-2'>{order?.carInfo?.price}</td>
-										<td className='py-4 px-2 bg-gray-100 font-bold text-black text-center'>
+										<td className='py-4 px-2'>${order?.carInfo?.price}</td>
+										<td className='py-4 px-2 bg-gray-100  text-black text-center'>
 											<p>{order?.buyerInfo?.buyerName}</p>
 											<p>{order?.buyerInfo?.email}</p>
 											<p>{order?.buyerInfo?.phoneNumber}</p>

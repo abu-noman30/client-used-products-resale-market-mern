@@ -11,7 +11,7 @@ const SingleAdvertise = (props) => {
 	return (
 		<>
 			{/* Single Advertise Container */}
-			<div className='single-advertise-container '>
+			<div className='single-advertise-container ' data-aos='zoom-out-down'>
 				<div className='relative mx-auto w-full   bg-white'>
 					{/* :BACKGROUND IMAGE */}
 					<img src={image} alt='' className='absolute inset-0 w-full h-[24.2rem]  md:h-[24.5rem] lg:h-[25rem] object-fill' />

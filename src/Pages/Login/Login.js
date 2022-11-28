@@ -156,13 +156,13 @@ const Login = () => {
 	return (
 		<>
 			{/* Login Container */}
-			<div className='login-container flex items-center justify-center h-screen'>
-				<div className='flex flex-col w-full max-w-sm px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10'>
-					<div className='self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white'>Login To Your Account</div>
+			<div className='login-container flex items-center justify-center pt-10 pb-20'>
+				<div className='flex flex-col w-full max-w-sm px-4 py-8 bg-white rounded-lg shadow-2xl shadow-gray-700  sm:px-6 md:px-8 lg:px-10'>
+					<div className='self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl '>Login To Your Account</div>
 					<div className='flex gap-4 item-center'>
 						<button
 							type='button'
-							className='py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg '
+							className='py-2 px-4 flex justify-center items-center  bg-white hover:bg-gray-50 focus:ring-gray-500 focus:ring-offset-gray-200 text-red-800 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  border-2 border-gray-800 rounded-lg'
 							onClick={() => {
 								handlerGoogleSignIn();
 							}}
@@ -219,7 +219,7 @@ const Login = () => {
 							<div className='flex w-full'>
 								<button
 									type='submit'
-									className='py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg '
+									className='py-2 px-4 hover:bg-red-800 bg-red-700 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  '
 								>
 									Login
 								</button>
@@ -227,7 +227,7 @@ const Login = () => {
 						</form>
 					</div>
 					<div className='flex items-center justify-center mt-6'>
-						<Link to='/register' className='inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white'>
+						<Link to='/register' className='inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 '>
 							<span className='ml-2'>You don&#x27;t have an account?</span> <span className='underline text-blue-700'>Register</span>
 						</Link>
 					</div>

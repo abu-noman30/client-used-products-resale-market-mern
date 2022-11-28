@@ -5,7 +5,7 @@ const SingleCarCatagory = (props) => {
 	return (
 		<>
 			{/* Single Car Catagory Container */}
-			<div className='single-car-catagory-container '>
+			<div className='single-car-catagory-container ' data-aos='zoom-in'>
 				<div className=' flex-row shadow-sm'>
 					<div className='col-span-3 sm:col-span-2 lg:col-span-1 h-[8rem] px-5 flex justify-center items-center bg-gray-100 '>
 						<img src={image} alt='' className='w-full object-fill object-center h-28' />

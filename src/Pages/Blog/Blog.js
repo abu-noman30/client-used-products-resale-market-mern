@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 
-const Blogs = () => {
+const Blog = () => {
 	const Item = ({ title, children }) => {
 		const [isOpen, setIsOpen] = useState(false);
 		return (
@@ -25,9 +24,6 @@ const Blogs = () => {
 
 	return (
 		<>
-			<Helmet>
-				<title>Blogs - plumBoy</title>
-			</Helmet>
 			{/* Blogs Container */}
 			<div className='px-4 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
 				<div className='w-full  bg-white p-8 rounded-lg  shadow-lg shadow-gray-700'>
@@ -37,100 +33,116 @@ const Blogs = () => {
 						</div>
 					</div>
 					<div className='space-y-4 text-justify rounded shadow-lg '>
-						<Item className='rounded-xl shadow-lg shadow-gray-400' title='Q: Difference between SQL and NoSQL?'>
+						<Item className='rounded-xl shadow-lg shadow-gray-400' title='Q: What are the different ways to manage a state in a React application?'>
 							<strong>Ans:</strong>
-							<br />
+
 							<br />
 							<span>
-								<strong>SQL(Sequential Query Language): </strong>
-							</span>
-							<span>
-								SQL databases are relational databases. They are based on the relational model, an intuitive, straightforward way of representing data in tables. Each row in the table is a record with a unique ID called
-								the key. The columns of the table hold attributes of the data, and each record usually has a value for each attribute, making it easy to establish the relationships among data items. SQL databases are
-								also known as relational databases, RDBMSs (relational database management systems), or RDMSs (relational database management systems). The most popular SQL database is MySQL. Other examples include
-								Oracle, Microsoft SQL Server, PostgreSQL, and SQLite. SQL databases are widely used in enterprise applications. They are also a good choice for medium to large web applications. SQL databases are good at
-								handling structured data well. They are not a good fit for storing large volumes of unstructured data. SQL databases are also not a good fit for handling large data sets that require high availability.
+								<strong>Ways To manage State in React App: </strong>
 							</span>
 							<br />
+							<span>There are four main types of state you need to properly manage in your React apps:</span>
+							<br />
+							<ul className='list-decimal p-8'>
+								<li>Local state</li>
+								<li>Global state</li>
+								<li>Server state</li>
+								<li>Server state</li>
+							</ul>
+							<span>
+								<strong>Local (UI) state:</strong> – Local state is data we manage in one or another component. Local state is most often managed in React using the useState hook. For example, local state would be needed
+								to show or hide a modal component or to track values for a form component, such as form submission, when the form is disabled and the values of a form’s inputs.
+							</span>
+							<br />
 							<br />
 							<span>
-								<strong>NoSQL(No Sequential Query Language): </strong>
+								<strong>Global (UI) state:</strong> – Global state is data we manage across multiple components. Global state is necessary when we want to get and update data anywhere in our app, or in multiple
+								components at least. A common example of global state is authenticated user state. If a user is logged into our app, it is necessary to get and change their data throughout our application. Sometimes
+								state we think should be local might become global.
 							</span>
+							<br />
+							<br />
 							<span>
-								NoSQL databases are non-relational databases. They are based on the document model, a data model for representing and storing data that is more flexible than the tabular model used in relational
-								databases. In a document database, each record is a document, which is a data structure composed of field and value pairs. The values may be simple atomic values such as strings or numbers, or they may be
-								complex structures such as lists or other documents. NoSQL databases are also known as non-relational databases or distributed databases. The most popular NoSQL database is MongoDB. Other examples include
-								CouchDB, Redis, and Apache Cassandra. NoSQL databases are widely used in web and mobile applications. They are also a good choice for big data applications. NoSQL databases are good at handling large
-								volumes of unstructured data. They are not a good fit for handling complex relational data. NoSQL databases are also not a good fit for handling large data sets that require high availability.
+								<strong>Server state :</strong> – Data that comes from an external server that must be integrated with our UI state. Server state is a simple concept, but can be hard to manage alongside all of our local
+								and global UI state. There are several pieces of state that must be managed every time you fetch or update data from an external server, including loading and error state. Fortunately there are tools such
+								as SWR and React Query that make managing server state much easier.
+							</span>
+							<br />
+							<br />
+
+							<span>
+								<strong>URL state :</strong> – Data that exists on our URLs, including the pathname and query parameters. URL state is often missing as a category of state, but it is an important one. In many cases, a
+								lot of major parts of our application rely upon accessing URL state. Try to imagine building a blog without being able to fetch a post based off of its slug or id that is located in the URL!
 							</span>
 						</Item>
-						<Item className='rounded-xl shadow-lg' title='Q: What is JWT, and how does it work?'>
+						<Item className='rounded-xl shadow-lg' title='Q: How does prototypical inheritance work?'>
 							<strong>Ans:</strong>
 							<br />
 							<br />
 							<span>
-								<strong>JWT(JSON Web Token): </strong>
+								<strong>Prototypical Inheritance: </strong>
 							</span>
 							<span>
-								JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified
-								and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA. The tokens are signed by the issuer of the token,
-								and the receiver of the token can then verify that the token is valid by checking the signature. The tokens are designed to be compact, URL-safe and usable especially in web browser single sign-on (SSO)
-								context.
-							</span>
-							<br />
-							<br />
-							<span>
-								JWTS differ from other web tokens in that they contain a set of claims. Claims are used to transmit information between two parties. What these claims are depends on the use case at hand. For example, a
-								claim may assert who issued the token, how long it is valid for, or what permissions the client has been granted. A JWT is a string made up of three parts, separated by dots (.), and serialized using
-								base64. In the most common serialization format, compact serialization, the JWT looks something like this: xxxxx.yyyyy.zzzzz. Once decoded, you will get two JSON strings: The header and the payload. The
-								signature. The JOSE (JSON Object Signing and Encryption) header contains the type of token — JWT in this case — and the signing algorithm. The payload contains the claims. This is displayed as a JSON
-								string, usually containing no more than a dozen fields to keep the JWT compact. This information is typically used by the server to verify that the user has permission to perform the action they are
-								requesting. There are no mandatory claims for a JWT, but overlaying standards may make claims mandatory. For example, when using JWT as bearer access token under OAuth2.0, iss, sub, aud, and exp must be
-								present. some are more common than others. The signature ensures that the token hasn’t been altered. The party that creates the JWT signs the header and payload with a secret that is known to both the
-								issuer and receiver, or with a private key known only to the sender. When the token is used, the receiving party verifies that the header and payload match the signature.
+								Every object with its methods and properties contains an internal and hidden property known as [[Prototype]]. The Prototypal Inheritance is a feature in javascript used to add methods and properties in
+								objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object.getPrototypeOf and
+								Object.setPrototypeOf
 							</span>
 						</Item>
-						<Item className='rounded-xl shadow-lg' title='Q: What is the difference between javascript and NodeJS?'>
+						<Item className='rounded-xl shadow-lg' title='Q: What is a unit test? Why should we write unit tests?'>
 							<strong>Ans:</strong>
 							<br />
 							<br />
 							<span>
-								<strong>JavaScript: </strong>
+								<strong>Unit Testing: </strong>
 							</span>
 							<span>
-								JavaScript is a scripting language that is used to make web pages interactive. It is a lightweight, interpreted programming language with first-class functions. While it is most well-known as the
-								scripting language for Web pages, many non-browser environments also use it, such as Node.js, Apache CouchDB and Adobe Acrobat. JavaScript is a prototype-based, multi-paradigm, single-threaded, dynamic
-								language, supporting object-oriented, imperative, and declarative (e.g. functional programming) styles. JavaScript engines were originally used only in web browsers, but they are now embedded in many
-								other types of host software, including server-side in web servers and databases, and in non-web programs such as word processors and PDF software, and in runtime environments that make JavaScript
-								available for writing extensions and applications. JavaScript engines are typically found embedded in software products as an independent component, which may execute scripts written in the JavaScript
-								language. The most common use of JavaScript is in the web browser as an interpreted language, but it is also used in server-side networking through various JavaScript engines, such as Node.js. The
-								JavaScript engine is the program that executes JavaScript code. It is usually embedded in a host application, such as a web browser or a server-side web framework.
-							</span>
-							<br />
-							<br />
-							<span>
-								<strong>NodeJS: </strong>
-							</span>
-							<span>
-								Node.js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser. Node.js lets developers use JavaScript to write command line tools and for
-								server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. Node.js is an event-based, non-blocking, asynchronous I/O runtime
-								that uses Google's V8 JavaScript engine and libuv library. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world. Node.js is a JavaScript runtime built on
-								Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed
-								devices. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
+								Unit testing is a software development process in which the smallest testable parts of an application, called units, are individually and independently scrutinized for proper operation. This testing
+								methodology is done during the development process by the software developers and sometimes QA staff. The main objective of unit testing is to isolate written code to test and determine if it works as
+								intended.
+								<br />
+								<br />
+								Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages.
+								<br />
+								<br />
+								Unit testing is a component of test-driven development (TDD), a pragmatic methodology that takes a meticulous approach to building a product by means of continual testing and revision. This testing method
+								is also the first level of software testing, which is performed before other testing methods such as integration testing. Unit tests are typically isolated to ensure a unit does not rely on any external
+								code or functions. Testing can be done manually but is often automated.
+								<br />
+								<br />
+								<strong>How unit tests work:</strong> A unit test typically comprises of three stages: plan, cases and scripting and the unit test itself. In the first step, the unit test is prepared and reviewed. The
+								next step is for the test cases and scripts to be made, then the code is tested. Test-driven development requires that developers first write failing unit tests. Then they write code and refactor the
+								application until the test passes. TDD typically results in an explicit and predictable code base.
 							</span>
 						</Item>
-						<Item className='rounded-xl shadow-lg' title='Q: How does NodeJS handle multiple requests at the same time?'>
+						<Item className='rounded-xl shadow-lg' title='Q: React vs. Angular vs. Vue?'>
 							<strong>Ans:</strong>
 							<br />
 							<br />
 							<span>
-								<strong>NodeJS: </strong>
+								<strong>Angular: </strong>
 							</span>
 							<span>
-								Node.js is a single-threaded application, but it can support concurrency via the concept of event and callbacks. Every API of Node.js is asynchronous and being single-threaded, they use async function
-								calls to maintain concurrency.NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is
-								an infinite loop that receives requests and processes them. EventLoop is the listener for the EventQueue. If NodeJS can process the request without I/O blocking then the event loop would itself process
-								the request and sends the response back to the client by itself. But, it is possible to process multiple requests parallelly using the NodeJS cluster module or worker_threads module.
+								Angular, developed by Google, was first released in 2010, making it the oldest of the lot. It is a TypeScript-based JavaScript framework. A substantial shift occurred in 2016 on the release of Angular 2
+								(and the dropping of the “JS” from the original name – AngularJS). Angular 2+ is known as just Angular. Although AngularJS (version 1) still gets updates, we will focus the discussion on Angular.
+							</span>
+							<br />
+							<br />
+							<span>
+								<strong>Vue: </strong>
+							</span>
+							<span>
+								Vue, also known as Vue.js, is the youngest member of the group. It was developed by ex-Google employee Evan You in 2014. Over the last several years, Vue has seen a substantial shift in popularity, even
+								though it doesn’t have the backing of a large company. The most current version is always announced on the official Vue website on their releases page. Contributors for Vue are supported by Patreon. It
+								should be noted that Vue also has its own GitHub repo, and functions using TypeScript.
+							</span>
+							<br />
+							<br />
+							<span>
+								<strong>React: </strong>
+							</span>
+							<span>
+								React, developed by Facebook, was initially released in 2013. Facebook uses React extensively in their products (Facebook, Instagram, and WhatsApp). Similar to Vue, the React developers also announce
+								their newest version on the blog section of the React website.
 							</span>
 						</Item>
 					</div>
@@ -140,4 +152,4 @@ const Blogs = () => {
 	);
 };
 
-export default Blogs;
+export default Blog;

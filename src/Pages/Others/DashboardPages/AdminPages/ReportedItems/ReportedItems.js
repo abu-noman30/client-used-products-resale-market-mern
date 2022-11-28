@@ -54,6 +54,7 @@ const ReportedItems = () => {
 		console.log('Cancel');
 		setModalData({});
 	};
+	// console.log('repotedItems', reportedItems);
 	return (
 		<>
 			{/* Reported Items Container */}
@@ -70,7 +71,10 @@ const ReportedItems = () => {
 										MODEL
 									</th>
 									<th scope='col' className='py-3 px-2 text-start'>
-										Price
+										Orginal Price
+									</th>
+									<th scope='col' className='py-3 px-2 text-start'>
+										Re-Sale Price
 									</th>
 									<th scope='col' className='py-3 px-2 text-center'>
 										Seller
@@ -86,7 +90,7 @@ const ReportedItems = () => {
 							<tbody>
 								{reportedItems.map((item, index) => (
 									<tr className='bg-white border-b hover:bg-gray-50 ' key={item._id}>
-										<th scope='row' className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
+										<th scope='row' className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap'>
 											{index + 1}
 										</th>
 										<td className='py-1 px-1'>
@@ -98,8 +102,10 @@ const ReportedItems = () => {
 										</td>
 										<td className='py-4 px-2'>{item?.car?.car_name}</td>
 										<td className='py-4 px-2'>
-											<p>{item?.car?.price?.orginal_price}</p>
-											<p>{item?.car?.price?.resale_price}</p>
+											<p>${item?.car?.price?.original_price}</p>
+										</td>
+										<td className='py-4 px-2'>
+											<p>${item?.car?.price?.resale_price}</p>
 										</td>
 										<td className='py-4 px-2 bg-gray-100 text-center'>
 											<p>{item?.car?.seller_info?.name}</p>

@@ -176,9 +176,9 @@ const Register = () => {
 	return (
 		<>
 			{/* Register Container */}
-			<div className='register-container flex items-center justify-center h-screen'>
-				<div className='flex flex-col w-full max-w-sm px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10'>
-					<div className='self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white'>Register Your Account</div>
+			<div className='register-container flex items-center justify-center pt-10 pb-20'>
+				<div className='flex flex-col w-full max-w-sm px-4 py-8 bg-white rounded-lg shadow-2xl shadow-gray-700 sm:px-6 md:px-8 lg:px-10'>
+					<div className='self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl '>Register Your Account</div>
 					<div className='flex gap-4 item-center'></div>
 					<div className='mt-8'>
 						<form
@@ -259,7 +259,7 @@ const Register = () => {
 							<div className='flex w-full'>
 								<button
 									type='submit'
-									className='py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg '
+									className='py-2 px-4  bg-red-700 hover:bg-red-800 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  '
 								>
 									Register
 								</button>
@@ -267,7 +267,7 @@ const Register = () => {
 						</form>
 					</div>
 					<div className='flex items-center justify-center mt-6'>
-						<Link to='/login' className='inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white'>
+						<Link to='/login' className='inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 '>
 							<span className='ml-2'>Allready have an account?</span>
 							<span className='underline text-blue-700 ml-2'> Login</span>
 						</Link>

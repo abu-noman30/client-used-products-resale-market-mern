@@ -112,7 +112,7 @@ const MyProducts = () => {
 							<tbody>
 								{products.map((product, index) => (
 									<tr className='bg-white border-b hover:bg-gray-50 ' key={product._id}>
-										<th scope='row' className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
+										<th scope='row' className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap'>
 											{index + 1}
 										</th>
 										<td className='py-1 px-1'>
@@ -123,7 +123,7 @@ const MyProducts = () => {
 											</div>
 										</td>
 										<td className='py-4 px-2'>{product?.car_name}</td>
-										<td className='py-4 px-2'>{product?.price?.resale_price}</td>
+										<td className='py-4 px-2'>${product?.price?.resale_price}</td>
 										<td className='py-4 px-2 bg-gray-100 font-bold text-black text-center'>
 											{product?.sales_status === 'sold' ? <div className='badge badge-success'>SOLD</div> : <div className='badge badge-warning'>AVAILABLE</div>}
 										</td>

@@ -21,9 +21,9 @@ const CarCatagory = () => {
 		<>
 			{/* Car Catagories Container */}
 			<div className='car-catagories-container w-11/12 max-w-7xl mx-auto mt-10 px-0 md:px-16 lg:px-0 mb-10 '>
-				<div className=' mb-10 w-1/2 mx-auto text-center'>
-					<h1 className='flex flex-col justify-center items-center bg-cover text-black bg-center text-2xl md:text-4xl lg:text-5xl font-extrabold  underline underline-offset-4'>Choose your Brand</h1>
-					<blockquote className='text-sm italic font-semibold text-gray-400 dark:text-white mt-2'>
+				<div className=' mb-10  mx-auto text-center'>
+					<h1 className='flex flex-col justify-center items-center bg-cover text-black bg-center text-3xl md:text-4xl lg:text-5xl font-extrabold  underline underline-offset-4'>Choose your Brand</h1>
+					<blockquote className='text-sm italic font-semibold text-gray-400  mt-2'>
 						<p>" Choose your brand, choose your car. Select your car from the list of brands below."</p>
 					</blockquote>
 				</div>

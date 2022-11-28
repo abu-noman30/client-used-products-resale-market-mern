@@ -12,7 +12,7 @@ const TrustBrands = () => {
 							{/* ::Title */}
 							<h2 className='text-3xl sm:text-4xl font-bold tracking-wide underline underline-offset-4'>Popular Brands</h2>
 							{/* ::Text */}
-							<blockquote className='text-sm italic font-semibold text-gray-400 dark:text-white mt-2 text-start'>
+							<blockquote className='text-sm italic font-semibold text-gray-400 mt-2 text-start'>
 								<p>"We have a wide range of products from the most popular brands in the world."</p>
 							</blockquote>
 						</div>
