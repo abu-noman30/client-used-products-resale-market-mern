@@ -29,7 +29,7 @@ const DashboardLayout = () => {
 					<input id='dashboard-drawer' type='checkbox' className='drawer-toggle' />
 					{/* <!-- Page content here --> */}
 					<div className='drawer-content bg-white'>
-						<div className='bg-red-100 w-full shadow-lg  px-2 '>
+						<div className='bg-gray-50 w-full shadow-lg  px-2 '>
 							<div className='flex items-center justify-center ml:0 lg:ml-96  '>
 								<DashboardNav />
 							</div>

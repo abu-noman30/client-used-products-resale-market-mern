@@ -14,7 +14,7 @@ const SingleAdvertise = (props) => {
 			<div className='single-advertise-container ' data-aos='zoom-out-down'>
 				<div className='relative mx-auto w-full   bg-white'>
 					{/* :BACKGROUND IMAGE */}
-					<img src={image} alt='' className='absolute inset-0 w-full h-[24.2rem]  md:h-[24.5rem] lg:h-[25rem] object-fill' />
+					<img src={image} alt='' className='absolute inset-0 w-full h-[23.8rem]  md:h-[24.5rem] lg:h-[25rem] object-fill' />
 					<div className='absolute bottom-0 block sm:hidden w-full bg-black opacity-40'></div>
 
 					<div className='relative flex flex-col justify-between'>
@@ -28,7 +28,7 @@ const SingleAdvertise = (props) => {
 						<div className='pb-10 pl-10'>
 							<h3 className='flex flex-col items-start font-extrabold font-raleway space-y-1.5'>
 								<span className='block text-2xl  text-white text-opacity-70 tracking-wide'>Try our</span>
-								<span className='block text-4xl  text-white uppercase tracking-wide' style={{ textShadow: '1px 2px 5px black' }}>
+								<span className='block text-2xl lg:text-4xl  text-white uppercase tracking-wide' style={{ textShadow: '1px 2px 5px black' }}>
 									{car_name}
 								</span>
 								<span className='block text-3xl  text-white text-opacity-70 tracking-wide'>Now</span>

@@ -36,8 +36,8 @@ const SingleCarCard = (props) => {
 						{/* :CARD BODY */}
 						<div className=' py-3 px-8 flex flex-col'>
 							{/* ::Title */}
-							<div className=' flex  items-center justify-between'>
-								<h1 className='text-2xl text-left font-bold text-gray-800 antialiased'>{car_name}</h1>
+							<div className=' flex flex-col lg:flex-row items-center justify-between'>
+								<h1 className='text-lg lg:text-2xl text-left font-bold text-gray-800 antialiased'>{car_name}</h1>
 								<p className='text-md text-left  text-gray-500  antialiased'>(Used for {used_for} years )</p>
 							</div>
 
@@ -52,14 +52,14 @@ const SingleCarCard = (props) => {
 							<div className=' flex items-center justify-between'>
 								<p className='overflow-hidden leading-relaxed text-lg text-gray-500 text-left font-medium cursor-pointer'>Resale Price:</p>
 								<p className=''>
-									<span className='font-bold text-3xl -my-2 flex items-center justify-end text-red-700'>${resale_price}</span>
+									<span className='font-bold text-lg md:text-3xl -my-2 flex items-center justify-end text-red-700'>${resale_price}</span>
 								</p>
 							</div>
 
 							<div className='flex flex-row-reverse items-center justify-between mt-5'>
 								<label
 									htmlFor='book-now-modal'
-									className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-800 focus:shadow-outline focus:outline-none'
+									className='inline-flex items-center justify-center h-6 md:h-12 px-1 md:px-6 text-sm md:text-lg font-medium tracking-wide text-white transition duration-200 rounded-lg md:rounded shadow-md bg-red-700 hover:bg-red-800 focus:shadow-outline focus:outline-none mt-5 lg:mt-0'
 									aria-label='Book Now'
 									title='Book Now'
 									onClick={() => setBookNowModalData(car)}

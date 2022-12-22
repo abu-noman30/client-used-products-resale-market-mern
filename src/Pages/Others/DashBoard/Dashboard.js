@@ -36,7 +36,7 @@ const DashBoard = () => {
 							</div>
 							<div className='typing-demo font-extrabold text-center text mt-[6rem]'>
 								<h1 className=' text-xl md:text-5xl lg:text-7xl '>
-									<span className='bg-red-800 text-white rounded-lg '>ADMIN</span> <span className='underline underline-offset-5'>DASHBOARD</span>
+									<span className='bg-red-800 text-white rounded-lg '>SELLER</span> <span className='underline underline-offset-5'>DASHBOARD</span>
 								</h1>
 							</div>
 							<div className='mt-5'>
